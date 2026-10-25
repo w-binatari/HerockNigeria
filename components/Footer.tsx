@@ -11,7 +11,7 @@ export function Footer() {
             <Logo />
           </Link>
           <p className="footer-name">{companyName}</p>
-          <p>Incorporated since 1993.</p>
+          <p>Established in 1993.</p>
         </div>
         <div>
           <h2>Pages</h2>
@@ -29,6 +29,8 @@ export function Footer() {
             {contact.street}
             <br />
             {contact.city}
+            <br />
+            {contact.region}
           </address>
           <ul className="footer-list">
             {contact.phones.map((phone) => (
@@ -36,6 +38,13 @@ export function Footer() {
                 <a href={phone.href}>{phone.display}</a>
               </li>
             ))}
+            <li>
+              <a href={contact.whatsapp.href} target="_blank" rel="noopener noreferrer">
+                {contact.whatsapp.display}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <span> ({contact.whatsapp.note})</span>
+            </li>
             {contact.emails.map((email) => (
               <li key={email}>
                 <a href={`mailto:${email}`}>{email}</a>

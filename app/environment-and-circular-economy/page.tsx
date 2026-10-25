@@ -2,9 +2,19 @@ import type { Metadata } from "next";
 import { NamedList } from "@/components/NamedList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { circularConsultancy, companyName, environmentServices, pages } from "@/lib/site";
+import {
+  ceaUrl,
+  circularConsultancy,
+  circularFocus,
+  companyName,
+  environmentIntro,
+  environmentServices,
+  group,
+  pages,
+} from "@/lib/site";
 
-const page = pages[3];
+const page = pages[6];
+const envirotech = group[2];
 
 export const metadata: Metadata = {
   title: page.title,
@@ -23,20 +33,25 @@ export default function EnvironmentPage() {
       <PageHero
         kicker="Environment"
         title="Environment and circular economy"
-        lede="Waste management, sustainability consulting, and circular-economy consulting and training."
+        lede={environmentIntro}
       />
       <section className="section">
         <div className="wrap narrow">
           <h2>Services</h2>
           <NamedList items={environmentServices} />
+          <p className="stance">
+            {envirotech.name} sits under Herock Nigeria. Its role is {envirotech.role.toLowerCase()}
+          </p>
         </div>
       </section>
       <section className="section mist">
         <div className="wrap narrow">
-          <h2>Circular-economy training and consultancy</h2>
+          <h2>Circular economy training and consultancy</h2>
+          <p className="intro">{circularFocus}</p>
           <p className="intro">
-            A focus of this work is circular-economy training and consultancy. The consultancy
-            covers:
+            Through a strategic partnership with the Circular Economy Alliance (
+            <a href={ceaUrl}>circulareconomyalliance.com</a>
+            ), the consultancy and training services include:
           </p>
           <NamedList items={circularConsultancy} />
         </div>

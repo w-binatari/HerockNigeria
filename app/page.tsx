@@ -1,26 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactDetails } from "@/components/ContactDetails";
-import { companyName, contact, pages, stance, values } from "@/lib/site";
+import { companyName, contact, pages, servicesIntro, values } from "@/lib/site";
 
 const services = [
   {
     href: "/engineering-procurement-and-construction",
     index: "01",
     title: "Engineering, procurement and construction",
-    text: "Engineering design, project management, feasibility studies, procurement and logistics, supply chain management, and construction and installation, for various industries.",
+    text: "Complete engineering, procurement and construction for complex infrastructure projects, from first design to final execution, with training at handover.",
+  },
+  {
+    href: "/human-capital-development",
+    index: "02",
+    title: "Human capital development and manpower supply",
+    text: "Practical training and a vetted workforce, including engineering, digital skills, and health, safety, and environment courses.",
+  },
+  {
+    href: "/research-and-innovation",
+    index: "03",
+    title: "Research and innovation",
+    text: "Training and capacity building for researchers, and linkages to support commercialization in the oil and gas industry.",
+  },
+  {
+    href: "/project-management",
+    index: "04",
+    title: "Project management",
+    text: "Project management training for teams delivering work on time, on budget, and to technical specifications.",
   },
   {
     href: "/environment-and-circular-economy",
-    index: "02",
+    index: "05",
     title: "Environment and circular economy",
-    text: "Waste management, sustainability consulting, circular-economy consulting, resource-efficiency optimization, supply-chain optimization, carbon-footprint reduction programs, and stakeholder engagement and education.",
-  },
-  {
-    href: "/equipment-people-and-training",
-    index: "03",
-    title: "Equipment, people and training",
-    text: "Rental and leasing of heavy machinery, construction equipment, environment and waste equipment, industry equipment, and IT equipment, with skilled labour and training.",
+    text: "Waste management, sustainability, and circular economy consulting and training.",
   },
 ] as const;
 
@@ -45,10 +57,8 @@ export default function HomePage() {
           <p className="kicker">Port Harcourt</p>
           <h1>{companyName}</h1>
           <p className="lede">
-            Engineering, procurement and construction, environmental services, and equipment
-            leasing and manpower supply.
+            An EPC and human capacity development company, established in 1993.
           </p>
-          <p className="since">Incorporated since 1993.</p>
           <div className="actions">
             <Link className="button" href="/contact">
               Contact the office
@@ -63,7 +73,8 @@ export default function HomePage() {
       <section className="section mist">
         <div className="wrap">
           <p className="kicker">Services</p>
-          <h2>Three lines of work</h2>
+          <h2>Five service areas</h2>
+          <p className="intro">{servicesIntro}</p>
           <div className="card-grid">
             {services.map((service) => (
               <article className="service-card" key={service.href}>
@@ -85,9 +96,9 @@ export default function HomePage() {
       <section className="section">
         <div className="wrap">
           <p className="kicker">Values</p>
-          <h2>I-R-I-S-E</h2>
+          <h2>I-RISE</h2>
           <p className="intro">
-            Herock spells its values as innovation, respect, integrity, service, and excellence.
+            The core values are integrity, respect, innovation, service, and excellence.
           </p>
           <div className="value-grid">
             {values.map((value) => (
@@ -97,7 +108,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p className="stance">{stance}</p>
           <p className="section-link">
             <Link href="/company">Company, mission, and vision</Link>
           </p>

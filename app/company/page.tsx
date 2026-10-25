@@ -3,17 +3,39 @@ import Link from "next/link";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
 import {
+  accreditations,
+  clientsLine,
+  commitment,
   companyName,
   contact,
   description,
+  experience,
+  group,
   mission,
   pages,
-  stance,
+  quality,
   values,
   vision,
 } from "@/lib/site";
 
 const page = pages[1];
+
+const work = [
+  {
+    href: "/engineering-procurement-and-construction",
+    label: "Engineering, procurement and construction",
+  },
+  {
+    href: "/human-capital-development",
+    label: "Human capital development and manpower supply",
+  },
+  { href: "/research-and-innovation", label: "Research and innovation" },
+  { href: "/project-management", label: "Project management" },
+  {
+    href: "/environment-and-circular-economy",
+    label: "Environment and circular economy",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -34,8 +56,27 @@ export default function CompanyPage() {
         <div className="wrap narrow">
           <h2>Office</h2>
           <p>
-            The office is {contact.street}, {contact.city}.
+            The office is {contact.street}, {contact.city}, {contact.region}.
           </p>
+          <p>{experience}</p>
+          <ul className="offer-list">
+            {accreditations.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="section mist">
+        <div className="wrap narrow">
+          <h2>Nigerian companies</h2>
+          <p className="intro">These Nigerian names sit under Herock Nigeria.</p>
+          <ul className="offer-list">
+            {group.map((company) => (
+              <li key={company.name}>
+                <strong>{company.name}.</strong> {company.role}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <section className="section mist">
@@ -55,15 +96,18 @@ export default function CompanyPage() {
               </blockquote>
             </figure>
           </div>
+          <figure className="statement commitment">
+            <figcaption>Commitment</figcaption>
+            <blockquote>
+              <p>{commitment}</p>
+            </blockquote>
+          </figure>
         </div>
       </section>
       <section className="section">
         <div className="wrap">
           <h2>Values</h2>
-          <p className="intro">
-            The values are spelled I-R-I-S-E: innovation, respect, integrity, service, and
-            excellence.
-          </p>
+          <p className="intro">Core values (I-RISE).</p>
           <div className="value-grid">
             {values.map((value) => (
               <div className="value" key={value.name}>
@@ -72,28 +116,23 @@ export default function CompanyPage() {
               </div>
             ))}
           </div>
-          <p className="stance">{stance}</p>
+          <p className="stance">{quality}</p>
         </div>
       </section>
-      <section className="section mist">
+      <section className="section">
         <div className="wrap narrow">
           <h2>The work</h2>
+          <p>{clientsLine}</p>
           <ul className="text-links">
-            <li>
-              <Link href="/engineering-procurement-and-construction">
-                Engineering, procurement and construction
-              </Link>
-            </li>
-            <li>
-              <Link href="/environment-and-circular-economy">Environment and circular economy</Link>
-            </li>
-            <li>
-              <Link href="/equipment-people-and-training">Equipment, people and training</Link>
-            </li>
+            {work.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
-      <OfficeCta intro="Call or email the Port Harcourt office." />
+      <OfficeCta intro="Call, email, or use WhatsApp to reach the Port Harcourt office." />
     </>
   );
 }

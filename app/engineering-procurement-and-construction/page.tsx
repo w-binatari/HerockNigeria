@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { NamedList } from "@/components/NamedList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { companyName, epcServices, pages } from "@/lib/site";
+import { companyName, epcCopy, pages } from "@/lib/site";
 
 const page = pages[2];
 
@@ -21,14 +20,13 @@ export default function EngineeringPage() {
   return (
     <>
       <PageHero
-        kicker="Engineering"
+        kicker="EPC"
         title="Engineering, procurement and construction"
-        lede="Herock provides engineering, procurement, and construction for various industries."
+        lede="Complete engineering, procurement and construction, from first design to final execution."
       />
       <section className="section">
         <div className="wrap narrow">
-          <h2>Services</h2>
-          <NamedList items={epcServices} />
+          <p>{epcCopy}</p>
         </div>
       </section>
       <OfficeCta intro="Call or email the Port Harcourt office about engineering, procurement, and construction." />

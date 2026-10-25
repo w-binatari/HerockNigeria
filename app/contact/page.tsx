@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ContactDetails } from "@/components/ContactDetails";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { PageHero } from "@/components/PageHero";
-import { companyName, pages } from "@/lib/site";
+import { companyName, contact, pages, reachOut } from "@/lib/site";
 
-const page = pages[5];
+const page = pages[7];
 
 export const metadata: Metadata = {
   title: page.title,
@@ -23,11 +23,14 @@ export default function ContactPage() {
       <PageHero
         kicker="Contact"
         title="Contact the office"
-        lede="One office, in Port Harcourt."
+        lede={`${contact.street}, ${contact.city}, ${contact.region}.`}
       />
       <section className="section">
         <div className="wrap contact-layout">
-          <ContactDetails title="Address" />
+          <div>
+            <ContactDetails title="Address" />
+            <p className="stance">{reachOut}</p>
+          </div>
           <EnquiryForm />
         </div>
       </section>

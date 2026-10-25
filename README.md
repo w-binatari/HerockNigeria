@@ -1,6 +1,6 @@
 # Herock Nigeria
 
-Marketing site for Herock Nigeria Limited, built with Next.js (App Router) and TypeScript.
+Marketing site for Herock Nigeria Ltd, built with Next.js (App Router) and TypeScript.
 
 The contact form is visual only. It does not send email.
 
