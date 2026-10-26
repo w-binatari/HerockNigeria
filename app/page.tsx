@@ -9,30 +9,35 @@ const services = [
     index: "01",
     title: "Engineering, procurement and construction",
     text: "Complete engineering, procurement and construction for complex infrastructure projects, from first design to final execution, with training at handover.",
+    tags: ["Design", "Procurement", "Construction"],
   },
   {
     href: "/human-capital-development",
     index: "02",
     title: "Human capital development and manpower supply",
     text: "Practical training and a vetted workforce, including engineering, digital skills, and health, safety, and environment courses.",
+    tags: ["Training", "Manpower"],
   },
   {
     href: "/research-and-innovation",
     index: "03",
     title: "Research and innovation",
     text: "Training and capacity building for researchers, and linkages to support commercialization in the oil and gas industry.",
+    tags: ["Oil and gas"],
   },
   {
     href: "/project-management",
     index: "04",
     title: "Project management",
     text: "Project management training for teams delivering work on time, on budget, and to technical specifications.",
+    tags: ["Planning", "Risk"],
   },
   {
     href: "/environment-and-circular-economy",
     index: "05",
     title: "Environment and circular economy",
     text: "Waste management, sustainability, and circular economy consulting and training.",
+    tags: ["Waste", "Circular economy"],
   },
 ] as const;
 
@@ -54,11 +59,9 @@ export default function HomePage() {
     <>
       <div className="home-hero">
         <div className="wrap">
-          <p className="kicker">Port Harcourt</p>
-          <h1>{companyName}</h1>
-          <p className="lede">
-            An EPC and human capacity development company, established in 1993.
-          </p>
+          <p className="kicker">{companyName}</p>
+          <h1>An EPC and human capacity development company.</h1>
+          <p className="lede">Established in 1993. Port Harcourt.</p>
           <div className="actions">
             <Link className="button" href="/contact">
               Contact the office
@@ -86,6 +89,11 @@ export default function HomePage() {
                   </Link>
                 </h3>
                 <p>{service.text}</p>
+                <p className="tags">
+                  {service.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </p>
                 <p className="more">View this service</p>
               </article>
             ))}
@@ -114,7 +122,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section ink">
+      <section className="section mist">
         <div className="wrap office-home">
           <ContactDetails title="The Port Harcourt office" />
           <p className="section-link">

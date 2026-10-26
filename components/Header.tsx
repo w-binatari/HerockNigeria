@@ -11,6 +11,9 @@ export function Header() {
   const [menuPath, setMenuPath] = useState<string | null>(null);
   const open = menuPath === pathname;
   const panelId = useId();
+  const primary = nav.filter((item) => item.href !== "/" && item.href !== "/company" && item.href !== "/contact");
+  const company = nav.find((item) => item.href === "/company");
+  const contact = nav.find((item) => item.href === "/contact");
 
   useEffect(() => {
     if (!open) {
@@ -29,7 +32,6 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <div className="rail" />
       <div className="wrap header-bar">
         <Link href="/" className="logo-link">
           <Logo priority />
@@ -45,7 +47,7 @@ export function Header() {
             {open ? "Close" : "Menu"}
           </button>
           <ul id={panelId} className={open ? "nav-list is-open" : "nav-list"}>
-            {nav.map((item) => {
+            {primary.map((item) => {
               const current = pathname === item.href;
               return (
                 <li key={item.href}>
@@ -55,6 +57,20 @@ export function Header() {
                 </li>
               );
             })}
+            {company ? (
+              <li className="nav-company">
+                <Link href={company.href} aria-current={pathname === company.href ? "page" : undefined}>
+                  {company.label}
+                </Link>
+              </li>
+            ) : null}
+            {contact ? (
+              <li className="nav-cta">
+                <Link className="button" href={contact.href} aria-current={pathname === contact.href ? "page" : undefined}>
+                  {contact.label}
+                </Link>
+              </li>
+            ) : null}
           </ul>
         </nav>
       </div>

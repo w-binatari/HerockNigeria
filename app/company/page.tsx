@@ -79,7 +79,7 @@ export default function CompanyPage() {
           </ul>
         </div>
       </section>
-      <section className="section mist">
+      <section className="section">
         <div className="wrap">
           <h2>Mission and vision</h2>
           <div className="statement-grid">
@@ -104,7 +104,7 @@ export default function CompanyPage() {
           </figure>
         </div>
       </section>
-      <section className="section">
+      <section className="section mist">
         <div className="wrap">
           <h2>Values</h2>
           <p className="intro">Core values (I-RISE).</p>
