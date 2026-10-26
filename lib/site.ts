@@ -17,7 +17,7 @@ export const contact = {
   city: "Port Harcourt",
   region: "Rivers State, Nigeria",
   phones: [
-    { display: "234(0)8069239622", href: "tel:+2348069239622" },
+    { display: "+234 (0) 806 923 9622", href: "tel:+234 (0) 806 923 9622" },
     { display: "+234(0)8033035679", href: "tel:+2348033035679" },
   ],
   whatsapp: {
