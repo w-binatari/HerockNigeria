@@ -60,7 +60,7 @@ export default function HomePage() {
       <div className="home-hero">
         <div className="wrap">
           <p className="kicker">{companyName}</p>
-          <h1>An EPC and human capacity development company.</h1>
+          <h1>An EPC and man power supply company.</h1>
           <p className="lede">Established in 1993. Port Harcourt.</p>
           <div className="actions">
             <Link className="button" href="/contact">

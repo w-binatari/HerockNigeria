@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 export const ogAlt =
-  "Herock Nigeria Ltd. EPC and human capacity development. Port Harcourt.";
+  "Herock Nigeria Ltd. EPC and man power supply company. Port Harcourt.";
 
 export function createOgImage() {
   return new ImageResponse(
@@ -60,7 +60,7 @@ export function createOgImage() {
               color: "#d1dae5",
             }}
           >
-            EPC and human capacity development
+            EPC and man power supply company
           </div>
         </div>
       </div>

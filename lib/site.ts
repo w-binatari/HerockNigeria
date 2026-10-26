@@ -176,7 +176,7 @@ export const pages = [
     label: "Home",
     title: "Home",
     description:
-      "Herock Nigeria Ltd is an EPC and human capacity development company in Port Harcourt, established in 1993.",
+      "Herock Nigeria Ltd is an EPC and man power supply company in Port Harcourt, established in 1993.",
   },
   {
     href: "/company",
