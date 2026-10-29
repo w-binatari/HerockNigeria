@@ -13,11 +13,11 @@ export function createOgImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#070614",
+          background: "#0a2350",
           color: "#ffffff",
         }}
       >
-        <div style={{ display: "flex", width: "16px", background: "#f83030" }} />
+        <div style={{ display: "flex", width: "16px", background: "#e2231a" }} />
         <div
           style={{
             display: "flex",
@@ -28,7 +28,7 @@ export function createOgImage() {
             height: "100%",
           }}
         >
-          <div style={{ display: "flex", width: "88px", height: "8px", background: "#0048a8" }} />
+          <div style={{ display: "flex", width: "88px", height: "8px", background: "#ffffff" }} />
           <div
             style={{
               display: "flex",
@@ -36,7 +36,7 @@ export function createOgImage() {
               fontSize: 24,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
-              color: "#e7f6ff",
+              color: "#c9d6ea",
             }}
           >
             Port Harcourt
@@ -57,7 +57,7 @@ export function createOgImage() {
               display: "flex",
               marginTop: "28px",
               fontSize: 32,
-              color: "#d1dae5",
+              color: "#c9d6ea",
             }}
           >
             EPC and man power supply company

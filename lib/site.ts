@@ -82,11 +82,41 @@ export const photos = {
   researchLab: { src: "/images/research-lab.jpg", alt: "A researcher using a microscope in a laboratory" },
 } as const;
 
-export const accreditations = [
-  "Accredited by COREN (Council for the Regulation of Engineering in Nigeria).",
-  "Members of OGTAN (Oil and Gas Trainers Association of Nigeria).",
-  "ISO 9001:2015 certified for Quality Management Systems.",
+export const services = [
+  {
+    href: "/engineering-procurement-and-construction",
+    title: "Engineering, procurement and construction",
+    text: "Complete delivery of complex infrastructure projects, from first design to final execution, with training at handover.",
+    photo: photos.epcPlant,
+  },
+  {
+    href: "/human-capital-development",
+    title: "Human capital development and manpower supply",
+    text: "Practical engineering, digital and QHSE training, and a vetted workforce ready to join your operations.",
+    photo: photos.workforceCrew,
+  },
+  {
+    href: "/project-management",
+    title: "Project management",
+    text: "Training for teams delivering work on time, on budget and to technical specification.",
+    photo: photos.projectPlanning,
+  },
+  {
+    href: "/environment-and-circular-economy",
+    title: "Environment and circular economy",
+    text: "Waste management, sustainability and circular economy consulting and training.",
+    photo: photos.recyclingBins,
+  },
+  {
+    href: "/research-and-innovation",
+    title: "Research and innovation",
+    text: "Capacity building for researchers, and links to commercialise innovation in oil and gas.",
+    photo: photos.researchLab,
+  },
 ] as const;
+
+// Client names and logos for the scrolling strip on the home page. It stays hidden until entries are added.
+export const clients: readonly { name: string; logo: { src: string; width: number; height: number } }[] = [];
 
 export const experience =
   "Because of our many years of experience, we have been able to develop a team of skilled and experienced professionals who can handle various parts of our operations as a company giving us an edge in the market.";
@@ -114,9 +144,6 @@ export const group = [
     role: "Eco-friendly environmental clean-up.",
   },
 ] as const;
-
-export const epcCopy =
-  "We offer complete Engineering, Procurement and Construction services, managing complex infrastructure projects from the first design to final execution. We make sure that all engineering, sourcing, and construction tasks meet the safety and quality standards. Importantly, our EPC handover process includes extensive training. Before we finish a project, we thoroughly train the client's facility managers and technical staff on how to safely operate, maintain, and troubleshoot the new infrastructure, ensuring long-term asset integrity.";
 
 export const trainingIntro =
   "We design and execute targeted modules to build a high-performing workforce. Our curriculum is practical, industry-aligned, and delivered by experts.";
@@ -165,13 +192,6 @@ export const researchCopy =
 
 export const projectManagementIntro =
   "Our Project Management Training equips teams with practical skills to deliver projects on time, budget and technical specifications. We cover:";
-
-export const projectManagementTopics = [
-  "Project Planning and Scheduling",
-  "Risk Management and Mitigation",
-  "Resource Allocation and Management",
-  "Communication and Stakeholder Management",
-] as const;
 
 export const environmentIntro =
   "We provide a range of services that support the protection of our environment, sustainable development, waste reduction, and resource efficiency.";

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { NamedList } from "@/components/NamedList";
+import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import {
   companyName,
   engineeringTraining,
@@ -18,6 +19,18 @@ import {
 
 const page = pages[3];
 const techIdeas = group[0];
+
+const trainingAreas = [
+  { title: "Engineering training", text: engineeringTraining },
+  {
+    title: "ICT and technology",
+    text: `${ictTraining} Digitalization and digital innovation training through ${techIdeas.name}.`,
+  },
+  {
+    title: "QHSE training",
+    text: "Health, safety and environment programmes that build a culture of safety and regulatory compliance.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -40,35 +53,53 @@ export default function HumanCapitalPage() {
         photo={photos.siteTeam}
       />
       <section className="section">
-        <div className="wrap narrow">
-          <h2>Training and skills development</h2>
-          <p className="intro">{trainingIntro}</p>
-          <h3 className="subhead">Engineering training</h3>
-          <p>{engineeringTraining}</p>
-          <h3 className="subhead">ICT and technology</h3>
-          <p>{ictTraining}</p>
-          <p>Digitalization and Digital Innovation Training.</p>
-          <p>
-            {techIdeas.name} sits under Herock Nigeria. Its role is {techIdeas.role.toLowerCase()}
-          </p>
-          <h3 className="subhead">QHSE training</h3>
-          <p className="intro">{qhseIntro}</p>
-          <NamedList items={qhseCourses} />
+        <div className="wrap lead-split">
+          <h2>Training built for the field.</h2>
+          <div>
+            <p>{trainingIntro}</p>
+            <p>
+              Giving people the right knowledge and skills is, we believe, the best way to ensure
+              long-term success.
+            </p>
+          </div>
+        </div>
+        <div className="wrap">
+          <div className="tiles">
+            {trainingAreas.map((area) => (
+              <div className="tile" key={area.title}>
+                <h3>{area.title}</h3>
+                <p>{area.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
-      <section className="section mist">
-        <div className="wrap narrow">
-          <h2>Strategic manpower solutions</h2>
-          <p className="intro">{manpowerIntro}</p>
-          <ul className="offer-list">
-            {manpower.map((item) => (
-              <li key={item.title}>
-                <strong>{item.title}.</strong> {item.text}
-              </li>
+
+      <section className="section navy">
+        <div className="wrap">
+          <h2>QHSE courses we have delivered</h2>
+          <p className="intro">{qhseIntro}</p>
+          <ul className="course-chips">
+            {[...new Set(qhseCourses)].map((course) => (
+              <li key={course}>{course}</li>
             ))}
           </ul>
         </div>
       </section>
+
+      <Feature photo={photos.workforceCrew} title="Strategic manpower solutions." reverse>
+        <p>{manpowerIntro}</p>
+        <ul className="feature-list">
+          {manpower.map((item) => (
+            <li key={item.title}>
+              <strong>{item.title}</strong>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </Feature>
+
+      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about training and manpower." />
     </>
   );

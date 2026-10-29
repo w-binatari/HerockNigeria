@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ClientMarquee } from "@/components/ClientMarquee";
+import { Credentials } from "@/components/Credentials";
+import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { ServiceList } from "@/components/ServiceList";
 import {
   circularFocus,
   companyName,
   contact,
-  credentials,
   environmentIntro,
   group,
   manpower,
@@ -15,42 +17,10 @@ import {
   pages,
   photos,
   qhseCourses,
+  services,
   servicesIntro,
   values,
 } from "@/lib/site";
-
-const services = [
-  {
-    href: "/engineering-procurement-and-construction",
-    photo: photos.epcPlant,
-    title: "Engineering, procurement and construction",
-    text: "Complete delivery of complex infrastructure projects, from first design to final execution, with training at handover.",
-  },
-  {
-    href: "/human-capital-development",
-    photo: photos.workforceCrew,
-    title: "Human capital development and manpower supply",
-    text: "Practical engineering, digital and QHSE training, and a vetted workforce ready to join your operations.",
-  },
-  {
-    href: "/project-management",
-    photo: photos.projectPlanning,
-    title: "Project management",
-    text: "Training for teams delivering work on time, on budget and to technical specification.",
-  },
-  {
-    href: "/environment-and-circular-economy",
-    photo: photos.recyclingBins,
-    title: "Environment and circular economy",
-    text: "Waste management, sustainability and circular economy consulting and training.",
-  },
-  {
-    href: "/research-and-innovation",
-    photo: photos.researchLab,
-    title: "Research and innovation",
-    text: "Capacity building for researchers, and links to commercialise innovation in oil and gas.",
-  },
-] as const;
 
 export const metadata: Metadata = {
   title: { absolute: companyName },
@@ -80,7 +50,7 @@ export default function HomePage() {
         <div className="wrap hero-content">
           <h1>Engineering, construction and the people to run it.</h1>
           <p className="lede">
-            {companyName} is an EPC and manpower supply company. We have delivered projects and trained
+            {companyName} is an EPC and man power supply company. We have delivered projects and trained
             the teams behind them from Port Harcourt since 1993.
           </p>
           <div className="actions">
@@ -94,40 +64,24 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section className="credentials" aria-label="Accreditations">
-        <ul className="wrap credential-list">
-          {credentials.map((item) => (
-            <li key={item.name}>
-              {item.logo ? (
-                <Image className="credential-logo" src={item.logo.src} alt={`${item.name} logo`} width={item.logo.width} height={item.logo.height} />
-              ) : null}
-              <strong>{item.name}</strong>
-              <span>{item.text}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <Credentials />
 
       <section className="section">
         <ServiceList intro={servicesIntro} services={services} />
       </section>
 
-      <section className="feature">
-        <div className="feature-photo">
-          <Image src={photos.technician.src} alt={photos.technician.alt} fill sizes="(min-width: 980px) 50vw, 100vw" />
-        </div>
-        <div className="feature-body">
-          <h2>Every handover includes training.</h2>
-          <p>
-            Before we finish a project, we train the client&apos;s facility managers and technical staff to
-            operate, maintain and troubleshoot the new infrastructure safely. The asset keeps working long
-            after our crews leave.
-          </p>
-          <p className="section-link">
-            <Link href="/engineering-procurement-and-construction">Engineering, procurement and construction</Link>
-          </p>
-        </div>
-      </section>
+      <ClientMarquee />
+
+      <Feature photo={photos.technician} title="Every handover includes training.">
+        <p>
+          Before we finish a project, we train the client&apos;s facility managers and technical staff to
+          operate, maintain and troubleshoot the new infrastructure safely. The asset keeps working long
+          after our crews leave.
+        </p>
+        <p className="section-link">
+          <Link href="/engineering-procurement-and-construction">Engineering, procurement and construction</Link>
+        </p>
+      </Feature>
 
       <section className="section navy">
         <div className="wrap">
@@ -155,19 +109,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="feature reverse">
-        <div className="feature-photo">
-          <Image src={photos.wasteTruck.src} alt={photos.wasteTruck.alt} fill sizes="(min-width: 980px) 50vw, 100vw" />
-        </div>
-        <div className="feature-body">
-          <h2>Cleaner operations, less waste.</h2>
-          <p>{environmentIntro}</p>
-          <p>{circularFocus}</p>
-          <p className="section-link">
-            <Link href="/environment-and-circular-economy">Environment and circular economy</Link>
-          </p>
-        </div>
-      </section>
+      <Feature photo={photos.wasteTruck} title="Cleaner operations, less waste." reverse>
+        <p>{environmentIntro}</p>
+        <p>{circularFocus}</p>
+        <p className="section-link">
+          <Link href="/environment-and-circular-economy">Environment and circular economy</Link>
+        </p>
+      </Feature>
 
       <section className="section">
         <div className="wrap group-layout">

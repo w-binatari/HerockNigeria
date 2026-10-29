@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { NamedList } from "@/components/NamedList";
+import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
+import { RelatedServices } from "@/components/RelatedServices";
 import {
   ceaUrl,
   circularConsultancy,
@@ -34,30 +35,51 @@ export default function EnvironmentPage() {
       <PageHero
         kicker="Environment"
         title="Environment and circular economy"
-        lede={environmentIntro}
+        lede="Services that protect the environment and help organisations waste less."
         photo={photos.wasteTruck}
       />
       <section className="section">
-        <div className="wrap narrow">
-          <h2>Services</h2>
-          <NamedList items={environmentServices} />
-          <p className="stance">
-            {envirotech.name} sits under Herock Nigeria. Its role is {envirotech.role.toLowerCase()}
-          </p>
+        <div className="wrap lead-split">
+          <h2>Cleaner operations, less waste.</h2>
+          <div>
+            <p>{environmentIntro}</p>
+            <p>
+              {envirotech.name}, part of the Herock group, carries out eco-friendly environmental
+              clean-up.
+            </p>
+          </div>
+        </div>
+        <div className="wrap">
+          <ul className="tiles compact">
+            {environmentServices.map((service) => (
+              <li className="tile" key={service}>
+                <h3>{service}</h3>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
-      <section className="section mist">
-        <div className="wrap narrow">
-          <h2>Circular economy training and consultancy</h2>
-          <p className="intro">{circularFocus}</p>
-          <p className="intro">
-            Through a strategic partnership with the Circular Economy Alliance (
-            <a href={ceaUrl}>circulareconomyalliance.com</a>
-            ), the consultancy and training services include:
-          </p>
-          <NamedList items={circularConsultancy} />
-        </div>
-      </section>
+
+      <Feature photo={photos.recyclingBins} title="Circular economy training and consultancy." reverse>
+        <p>{circularFocus}</p>
+        <p>
+          Through a strategic partnership with the{" "}
+          <a href={ceaUrl} target="_blank" rel="noopener noreferrer">
+            Circular Economy Alliance
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          , our consultancy and training cover:
+        </p>
+        <ul className="feature-list">
+          {circularConsultancy.map((item) => (
+            <li key={item}>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </Feature>
+
+      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about environmental and circular-economy work." />
     </>
   );

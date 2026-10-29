@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Credentials } from "@/components/Credentials";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
+import { ServiceList } from "@/components/ServiceList";
 import {
-  accreditations,
   clientsLine,
   commitment,
   companyName,
-  contact,
   description,
   experience,
   group,
@@ -16,28 +15,12 @@ import {
   pages,
   photos,
   quality,
+  services,
   values,
   vision,
 } from "@/lib/site";
 
 const page = pages[1];
-
-const work = [
-  {
-    href: "/engineering-procurement-and-construction",
-    label: "Engineering, procurement and construction",
-  },
-  {
-    href: "/human-capital-development",
-    label: "Human capital development and manpower supply",
-  },
-  { href: "/research-and-innovation", label: "Research and innovation" },
-  { href: "/project-management", label: "Project management" },
-  {
-    href: "/environment-and-circular-economy",
-    label: "Environment and circular economy",
-  },
-] as const;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -54,39 +37,25 @@ export default function CompanyPage() {
   return (
     <>
       <PageHero kicker="Company" title={companyName} lede={description} photo={photos.siteTeam} />
+
       <section className="section">
-        <div className="wrap narrow">
-          <h2>Office</h2>
-          <p>
-            The office is {contact.street}, {contact.city}, {contact.region}.
-          </p>
-          <p>{experience}</p>
-          <ul className="offer-list">
-            {accreditations.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <div className="wrap lead-split">
+          <h2>Port Harcourt, since 1993.</h2>
+          <div>
+            <p>{experience}</p>
+            <p>{quality}</p>
+          </div>
         </div>
       </section>
-      <section className="section mist">
-        <div className="wrap narrow">
-          <h2>Nigerian companies</h2>
-          <p className="intro">These Nigerian names sit under Herock Nigeria.</p>
-          <ul className="offer-list">
-            {group.map((company) => (
-              <li key={company.name}>
-                <strong>{company.name}.</strong> {company.role}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+
+      <Credentials />
+
       <section className="section">
         <div className="wrap">
           <h2>Mission and vision</h2>
           <div className="statement-grid">
             <figure className="statement has-photo">
-              <Image className="statement-photo" src={photos.siteTeam.src} alt="" fill sizes="(min-width: 720px) 50vw, 100vw" />
+              <Image className="statement-photo" src={photos.epcPlant.src} alt="" fill sizes="(min-width: 720px) 50vw, 100vw" />
               <figcaption>Mission</figcaption>
               <blockquote>
                 <p>{mission}</p>
@@ -108,34 +77,40 @@ export default function CompanyPage() {
           </figure>
         </div>
       </section>
+
       <section className="section mist">
-        <div className="wrap">
-          <h2>Values</h2>
-          <p className="intro">Core values (I-RISE).</p>
-          <div className="value-grid">
-            {values.map((value) => (
-              <div className="value" key={value.name}>
-                <span className="value-letter">{value.letter}</span>
-                <span className="value-name">{value.name}</span>
-              </div>
-            ))}
+        <div className="wrap group-layout">
+          <div>
+            <h2>The Herock group</h2>
+            <ul className="group-list">
+              {group.map((item) => (
+                <li key={item.name}>
+                  <strong>{item.name}</strong>
+                  <span>{item.role}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="stance">{quality}</p>
+          <div>
+            <h2>Our values</h2>
+            <ul className="value-grid" aria-label="I-RISE">
+              {values.map((value) => (
+                <li className="value" key={value.name}>
+                  <span className="value-letter" aria-hidden="true">
+                    {value.letter}
+                  </span>
+                  <span className="value-name">{value.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
+
       <section className="section">
-        <div className="wrap narrow">
-          <h2>The work</h2>
-          <p>{clientsLine}</p>
-          <ul className="text-links">
-            {work.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ServiceList intro={clientsLine} services={services} />
       </section>
+
       <OfficeCta intro="Call, email, or use WhatsApp to reach the Port Harcourt office." />
     </>
   );
