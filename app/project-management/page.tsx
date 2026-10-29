@@ -24,7 +24,7 @@ export default function ProjectManagementPage() {
         kicker="Projects"
         title="Project management"
         lede="Project management training for delivery on time, on budget, and to technical specifications."
-        photo={photos.siteTeam}
+        photo={photos.projectPlanning}
       />
       <section className="section">
         <div className="wrap narrow">

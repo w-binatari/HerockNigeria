@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 type Service = {
   href: string;
@@ -16,37 +13,19 @@ type ServiceListProps = {
   services: readonly Service[];
 };
 
-// The photo beside the list follows whichever service is hovered or focused.
+// Each row carries its own photo, faded in behind the text on hover or focus.
 export function ServiceList({ intro, services }: ServiceListProps) {
-  const [active, setActive] = useState(0);
-
   return (
     <div className="wrap split-head">
-      <div className="service-aside">
+      <div>
         <h2>What we do</h2>
         <p className="intro">{intro}</p>
-        <div className="service-photo" aria-hidden="true">
-          {services.map((service, index) => (
-            <Image
-              key={service.href}
-              src={service.photo.src}
-              alt=""
-              fill
-              sizes="(min-width: 980px) 40vw, 1px"
-              className={index === active ? "is-active" : undefined}
-            />
-          ))}
-        </div>
       </div>
       <ul className="service-rows">
-        {services.map((service, index) => (
+        {services.map((service) => (
           <li key={service.href}>
-            <Link
-              href={service.href}
-              onMouseEnter={() => setActive(index)}
-              onFocus={() => setActive(index)}
-              data-active={index === active || undefined}
-            >
+            <Link href={service.href}>
+              <Image className="service-bg" src={service.photo.src} alt="" fill sizes="(min-width: 980px) 60vw, 100vw" />
               <span className="service-title">{service.title}</span>
               <span className="service-text">{service.text}</span>
             </Link>

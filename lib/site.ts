@@ -74,6 +74,12 @@ export const photos = {
   siteTeam: { src: "/images/site-team.jpg", alt: "Herock engineers in hard hats and hi-vis vests reviewing drawings on a construction site" },
   technician: { src: "/images/technician.jpg", alt: "A technician in a hard hat working on an electrical cabinet" },
   wasteTruck: { src: "/images/waste-truck.jpg", alt: "A refuse compactor truck lifting a green waste bin" },
+  // Stock photos from Unsplash, free to use under the Unsplash License.
+  epcPlant: { src: "/images/epc-plant.jpg", alt: "An industrial plant under construction beside the water, with cranes" },
+  workforceCrew: { src: "/images/workforce-crew.jpg", alt: "A crew of workers in hard hats and hi-vis vests" },
+  projectPlanning: { src: "/images/project-planning.jpg", alt: "An engineer drafting a plan with a pencil and ruler" },
+  recyclingBins: { src: "/images/recycling-bins.jpg", alt: "Compost, waste and recycling bins side by side" },
+  researchLab: { src: "/images/research-lab.jpg", alt: "A researcher using a microscope in a laboratory" },
 } as const;
 
 export const accreditations = [

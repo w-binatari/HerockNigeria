@@ -22,31 +22,31 @@ import {
 const services = [
   {
     href: "/engineering-procurement-and-construction",
-    photo: photos.technician,
+    photo: photos.epcPlant,
     title: "Engineering, procurement and construction",
     text: "Complete delivery of complex infrastructure projects, from first design to final execution, with training at handover.",
   },
   {
     href: "/human-capital-development",
-    photo: photos.siteTeam,
+    photo: photos.workforceCrew,
     title: "Human capital development and manpower supply",
     text: "Practical engineering, digital and QHSE training, and a vetted workforce ready to join your operations.",
   },
   {
     href: "/project-management",
-    photo: photos.siteTeam,
+    photo: photos.projectPlanning,
     title: "Project management",
     text: "Training for teams delivering work on time, on budget and to technical specification.",
   },
   {
     href: "/environment-and-circular-economy",
-    photo: photos.wasteTruck,
+    photo: photos.recyclingBins,
     title: "Environment and circular economy",
     text: "Waste management, sustainability and circular economy consulting and training.",
   },
   {
     href: "/research-and-innovation",
-    photo: photos.technician,
+    photo: photos.researchLab,
     title: "Research and innovation",
     text: "Capacity building for researchers, and links to commercialise innovation in oil and gas.",
   },

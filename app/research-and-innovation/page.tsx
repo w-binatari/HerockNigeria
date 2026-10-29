@@ -23,7 +23,7 @@ export default function ResearchPage() {
         kicker="Research"
         title="Research and innovation"
         lede="Training and capacity building for researchers in the oil and gas industry."
-        photo={photos.technician}
+        photo={photos.researchLab}
       />
       <section className="section">
         <div className="wrap narrow">
