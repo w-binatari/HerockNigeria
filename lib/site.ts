@@ -89,6 +89,11 @@ export const photos = {
   projectPlanning: { src: "/images/project-planning.jpg", alt: "An engineer drafting a plan with a pencil and ruler" },
   recyclingBins: { src: "/images/recycling-bins.jpg", alt: "Compost, waste and recycling bins side by side" },
   researchLab: { src: "/images/research-lab.jpg", alt: "A researcher using a microscope in a laboratory" },
+  // From herockenvirotech.com.
+  envirotechAward: {
+    src: "/images/group/envirotech-nae.jpg",
+    alt: "Herock Envirotech recognised at the Nigerian Academy of Engineering awards night, 2026",
+  },
 } as const;
 
 export const services = [
@@ -168,10 +173,21 @@ export const servicesIntro =
 export const clientsLine =
   "Over the years, we have worked with several top organizations across several sectors and industries and this has increased our skill and experience making us the best at what we do.";
 
-export const group = [
+export const group: readonly {
+  name: string;
+  role: string;
+  url?: string;
+  logo?: { src: string; width: number; height: number };
+}[] = [
   {
     name: "Herock Tech-IDEAS",
     role: "Digital skills development.",
+  },
+  {
+    name: "Herock E-Ville Academy",
+    role: "Online learning for secondary, tertiary and professional learners.",
+    url: "https://www.herockeville.com",
+    logo: { src: "/images/group/eville.png", width: 546, height: 457 },
   },
   {
     name: "Herock Integrated Safety Services Limited",
@@ -179,9 +195,11 @@ export const group = [
   },
   {
     name: "Herock Envirotech Limited",
-    role: "Eco-friendly environmental clean-up.",
+    role: "Cleantech that turns agricultural waste into biodegradable oil-spill sorbents.",
+    url: "https://www.herockenvirotech.com",
+    logo: { src: "/images/group/envirotech.png", width: 368, height: 138 },
   },
-] as const;
+];
 
 export const trainingIntro =
   "We design and execute targeted modules to build a high-performing workforce. Our curriculum is practical, industry-aligned, and delivered by experts.";

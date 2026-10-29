@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Credentials } from "@/components/Credentials";
+import { GroupList } from "@/components/GroupList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
 import { ServiceList } from "@/components/ServiceList";
@@ -10,7 +11,6 @@ import {
   companyName,
   description,
   experience,
-  group,
   mission,
   pages,
   photos,
@@ -82,14 +82,7 @@ export default function CompanyPage() {
         <div className="wrap group-layout">
           <div>
             <h2>The Herock group</h2>
-            <ul className="group-list">
-              {group.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong>
-                  <span>{item.role}</span>
-                </li>
-              ))}
-            </ul>
+            <GroupList />
           </div>
           <div>
             <h2>Our values</h2>

@@ -18,7 +18,7 @@ import {
 } from "@/lib/site";
 
 const page = pages[3];
-const techIdeas = group[0];
+const techIdeas = group.find((item) => item.name === "Herock Tech-IDEAS")!;
 
 const trainingAreas = [
   { title: "Engineering training", text: engineeringTraining },

@@ -623,9 +623,34 @@ a:hover {
 
 .group-list li {
   display: grid;
-  gap: 0.2rem;
+  grid-template-columns: 72px 1fr;
+  gap: 1.25rem;
+  align-items: center;
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--line);
+}
+
+.group-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+}
+
+.group-logo img {
+  width: 72px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.group-text {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.group-text a {
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .group-list strong {

@@ -16,7 +16,7 @@ import {
 } from "@/lib/site";
 
 const page = pages[6];
-const envirotech = group[2];
+const envirotech = group.find((item) => item.name === "Herock Envirotech Limited")!;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -44,8 +44,8 @@ export default function EnvironmentPage() {
           <div>
             <p>{environmentIntro}</p>
             <p>
-              {envirotech.name}, part of the Herock group, carries out eco-friendly environmental
-              clean-up.
+              {envirotech.name}, part of the Herock group, develops biodegradable oil-spill sorbents made
+              from agricultural waste.
             </p>
           </div>
         </div>
@@ -77,6 +77,26 @@ export default function EnvironmentPage() {
             </li>
           ))}
         </ul>
+      </Feature>
+
+      <Feature photo={photos.envirotechAward} title="Herock Envirotech: oil-spill clean-up from chicken feathers.">
+        <p>
+          Our sister company turns poultry feather waste into the Chicken Feather Oil Pillow, a
+          biodegradable sorbent that absorbs over ten times its own weight in oil and floats on water.
+          It is validated at technology readiness level 7.
+        </p>
+        <p>
+          In 2026 it was one of the top eight finalists in the Nigerian Academy of Engineering&apos;s 3rd
+          National Innovation Competition, and received the Academy&apos;s Certificate of Merit.
+        </p>
+        {envirotech.url ? (
+          <p className="section-link">
+            <a href={envirotech.url} target="_blank" rel="noopener noreferrer">
+              Visit Herock Envirotech
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+        ) : null}
       </Feature>
 
       <RelatedServices current={page.href} />

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { Credentials } from "@/components/Credentials";
 import { Feature } from "@/components/Feature";
+import { GroupList } from "@/components/GroupList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { ServiceList } from "@/components/ServiceList";
 import {
@@ -11,7 +12,6 @@ import {
   companyName,
   contact,
   environmentIntro,
-  group,
   manpower,
   manpowerIntro,
   pages,
@@ -121,14 +121,7 @@ export default function HomePage() {
         <div className="wrap group-layout">
           <div>
             <h2>The Herock group</h2>
-            <ul className="group-list">
-              {group.map((item) => (
-                <li key={item.name}>
-                  <strong>{item.name}</strong>
-                  <span>{item.role}</span>
-                </li>
-              ))}
-            </ul>
+            <GroupList />
           </div>
           <div>
             <h2>Our values</h2>
