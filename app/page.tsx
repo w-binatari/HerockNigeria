@@ -23,7 +23,7 @@ import {
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: companyName },
+  title: { absolute: `${companyName} | EPC, training and man power supply in Port Harcourt` },
   description: pages[0].description,
   alternates: { canonical: "/" },
   openGraph: {

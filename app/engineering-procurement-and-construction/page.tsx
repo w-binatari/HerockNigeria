@@ -4,28 +4,10 @@ import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
 import { RelatedServices } from "@/components/RelatedServices";
-import { companyName, pages, photos } from "@/lib/site";
+import { companyName, pages, photos, epcStages } from "@/lib/site";
 
 const page = pages[2];
 
-const stages = [
-  {
-    title: "Engineering",
-    text: "Design that meets safety and quality standards from the first drawing.",
-  },
-  {
-    title: "Procurement",
-    text: "Sourcing of materials and equipment to the same standards as the design.",
-  },
-  {
-    title: "Construction",
-    text: "Execution on site, managed through to completion.",
-  },
-  {
-    title: "Handover training",
-    text: "Your facility managers and technical staff trained to run what we built.",
-  },
-] as const;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -67,7 +49,7 @@ export default function EngineeringPage() {
         <div className="wrap">
           <h2>How we deliver</h2>
           <ol className="steps">
-            {stages.map((stage, index) => (
+            {epcStages.map((stage, index) => (
               <li key={stage.title}>
                 <span className="step-number">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{stage.title}</h3>

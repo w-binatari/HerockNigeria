@@ -1,4 +1,9 @@
-export const siteUrl = "https://herocknigeria.vercel.app";
+// The public address. Set NEXT_PUBLIC_SITE_URL (for example https://www.herocknigeria.com) when the
+// site moves to its own domain; canonicals, the sitemap and structured data all follow it.
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://herocknigeria.vercel.app").replace(/\/$/, "");
+
+// Date the published content last changed; feeds the sitemap and Markdown copies.
+export const siteUpdated = "2026-10-29";
 
 export const logo = {
   src: "/images/logo.png",
@@ -298,13 +303,66 @@ export const circularConsultancy = [
 export const reachOut =
   "Let us do what we know how to do best for you, we are experts and are fully at your service anytime, please reach out to us today. Thank you so much.";
 
+export const epcStages = [
+  {
+    title: "Engineering",
+    text: "Design that meets safety and quality standards from the first drawing.",
+  },
+  {
+    title: "Procurement",
+    text: "Sourcing of materials and equipment to the same standards as the design.",
+  },
+  {
+    title: "Construction",
+    text: "Execution on site, managed through to completion.",
+  },
+  {
+    title: "Handover training",
+    text: "Your facility managers and technical staff trained to run what we built.",
+  },
+] as const;
+
+export const projectTopics = [
+  {
+    title: "Project planning and scheduling",
+    text: "Turning scope into a realistic plan and schedule a team can deliver against.",
+  },
+  {
+    title: "Risk management and mitigation",
+    text: "Spotting what could go wrong early and deciding how to control it.",
+  },
+  {
+    title: "Resource allocation and management",
+    text: "Putting the right people, equipment and budget where the work needs them.",
+  },
+  {
+    title: "Communication and stakeholder management",
+    text: "Keeping clients, contractors and teams informed and aligned through delivery.",
+  },
+] as const;
+
+export const researchSteps = [
+  {
+    title: "Build capacity",
+    text: "Training and capacity building for researchers working on oil and gas problems.",
+  },
+  {
+    title: "Make connections",
+    text: "Linkages to the partners and industry players a viable idea needs.",
+  },
+  {
+    title: "Commercialise",
+    text: "Guidance to take research and innovation from idea to reality in the industry.",
+  },
+] as const;
+
 export const pages = [
   {
     href: "/",
     label: "Home",
     title: "Home",
     description:
-      "Herock Nigeria Ltd is an EPC and man power supply company in Port Harcourt, established in 1993.",
+      "Herock Nigeria Ltd is an EPC and man power supply company in Port Harcourt, Rivers State, providing engineering, QHSE training and manpower since 1993.",
   },
   {
     href: "/company",
@@ -318,14 +376,14 @@ export const pages = [
     label: "EPC",
     title: "Engineering, procurement and construction",
     description:
-      "Complete engineering, procurement and construction for complex infrastructure projects, including handover training.",
+      "Engineering, procurement and construction (EPC) for complex infrastructure projects in Nigeria, with handover training for your team.",
   },
   {
     href: "/human-capital-development",
     label: "People",
     title: "Human capital development and manpower supply",
     description:
-      "Training, skills development, and manpower supply from Herock Nigeria Ltd.",
+      "QHSE, engineering and digital training, and vetted manpower supply, from Herock Nigeria Ltd in Port Harcourt.",
   },
   {
     href: "/research-and-innovation",
@@ -359,21 +417,70 @@ export const pages = [
 
 export const nav = pages;
 
+// One entity graph for every page: the company and the website that represents it.
+const organizationId = `${siteUrl}/#organization`;
+
 export const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: companyName,
-  url: siteUrl,
-  logo: `${siteUrl}${logo.src}`,
-  foundingDate: "1993",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: contact.street,
-    addressLocality: contact.city,
-    addressRegion: "Rivers",
-    addressCountry: "NG",
-  },
-  email: [...contact.emails],
-  telephone: ["+2348069239622", "+2348033035679"],
-  sameAs: [contact.website.href, ...social.map((item) => item.href)],
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: companyName,
+      alternateName: ["Herock", "Herock Nigeria", "Herock Nigeria Limited"],
+      url: siteUrl,
+      logo: { "@type": "ImageObject", url: `${siteUrl}${logo.src}`, width: logo.width, height: logo.height },
+      image: `${siteUrl}${photos.siteTeam.src}`,
+      description,
+      slogan: commitment,
+      foundingDate: "1993",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: contact.street,
+        addressLocality: contact.city,
+        addressRegion: "Rivers",
+        addressCountry: "NG",
+      },
+      areaServed: { "@type": "Country", name: "Nigeria" },
+      email: contact.emails[0],
+      telephone: "+2348069239622",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          telephone: "+2348069239622",
+          email: contact.emails[0],
+          areaServed: "NG",
+          availableLanguage: "English",
+        },
+      ],
+      knowsAbout: [
+        "Engineering, procurement and construction",
+        "Manpower supply",
+        "QHSE training",
+        "Project management training",
+        "Circular economy consulting",
+        "Oil and gas training",
+      ],
+      memberOf: { "@type": "Organization", name: "Oil and Gas Trainers Association of Nigeria" },
+      subOrganization: group.map((item) => ({
+        "@type": "Organization",
+        name: item.name,
+        description: item.role,
+        ...(item.url ? { url: item.url } : {}),
+      })),
+      sameAs: [contact.website.href, ...social.map((item) => item.href)].filter(
+        (href) => new URL(href).hostname.replace(/^www\./, "") !== new URL(siteUrl).hostname.replace(/^www\./, ""),
+      ),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Herock Nigeria",
+      alternateName: ["Herock", companyName],
+      url: siteUrl,
+      inLanguage: "en-NG",
+      publisher: { "@id": organizationId },
+    },
+  ],
 };

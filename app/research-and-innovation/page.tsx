@@ -3,24 +3,10 @@ import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
 import { RelatedServices } from "@/components/RelatedServices";
-import { companyName, pages, photos, researchCopy } from "@/lib/site";
+import { companyName, pages, photos, researchCopy, researchSteps } from "@/lib/site";
 
 const page = pages[4];
 
-const path = [
-  {
-    title: "Build capacity",
-    text: "Training and capacity building for researchers working on oil and gas problems.",
-  },
-  {
-    title: "Make connections",
-    text: "Linkages to the partners and industry players a viable idea needs.",
-  },
-  {
-    title: "Commercialise",
-    text: "Guidance to take research and innovation from idea to reality in the industry.",
-  },
-] as const;
 
 export const metadata: Metadata = {
   title: page.title,
@@ -55,7 +41,7 @@ export default function ResearchPage() {
         <div className="wrap">
           <h2>How we support researchers</h2>
           <ol className="steps three">
-            {path.map((step, index) => (
+            {researchSteps.map((step, index) => (
               <li key={step.title}>
                 <span className="step-number">{String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
