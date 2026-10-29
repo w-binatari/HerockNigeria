@@ -16,7 +16,7 @@ Private working notes for the Herock Nigeria website's search programme. Not ser
 | [04 · Implementation](04-implementation.md) | delivered and verified | Claude | Schema graph, titles, old-site redirects, robots/sitemap comments, llms.txt and Markdown copies |
 | [05 · Roadmap](05-roadmap.md) | active | Claude + Bina | Week-by-week plan with checks |
 | [06 · Owner actions](06-owner-actions.md) | open | Bina | O1–O10: domain, Search Console, Business Profile, profiles, links, facts, data access, content |
-| [07 · Domain move runbook](07-domain-migration-runbook.md) | in progress | Bina + Claude | Domains added in Vercel; waiting on 4 DNS changes that keep email working |
+| [07 · Domain move runbook](07-domain-migration-runbook.md) | in progress | Bina + Claude | Domains added in Vercel; waiting on one DNS change (`www`); mail records untouched by decision |
 
 ## Live verification of round 1
 
