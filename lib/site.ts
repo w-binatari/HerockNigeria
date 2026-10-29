@@ -115,8 +115,37 @@ export const services = [
   },
 ] as const;
 
-// Client names and logos for the scrolling strip on the home page. It stays hidden until entries are added.
-export const clients: readonly { name: string; logo: { src: string; width: number; height: number } }[] = [];
+// Client names and logos from the 2026 company profile, for the scrolling strip on the home page.
+export const clients: readonly { name: string; logo: { src: string; width: number; height: number } }[] = [
+  { name: "Nigeria LNG Limited", logo: { src: "/images/clients/nigeria-lng.png", width: 1024, height: 724 } },
+  { name: "TotalEnergies", logo: { src: "/images/clients/totalenergies.png", width: 218, height: 212 } },
+  { name: "Nigerian Content Development and Monitoring Board", logo: { src: "/images/clients/ncdmb.png", width: 200, height: 200 } },
+  { name: "Niger Delta Development Commission", logo: { src: "/images/clients/nddc.png", width: 139, height: 139 } },
+  { name: "Heritage Oil Limited", logo: { src: "/images/clients/heritage-oil.png", width: 173, height: 195 } },
+  { name: "AOS Orwell", logo: { src: "/images/clients/aos-orwell.png", width: 150, height: 112 } },
+  { name: "PIND", logo: { src: "/images/clients/pind.png", width: 267, height: 119 } },
+  { name: "Federal Ministry of Environment, HYPREP", logo: { src: "/images/clients/hyprep.png", width: 274, height: 154 } },
+  { name: "Ministry of Employment Generation and Economic Empowerment", logo: { src: "/images/clients/ministry-of-employment.png", width: 707, height: 588 } },
+  { name: "NESREA", logo: { src: "/images/clients/nesrea.png", width: 272, height: 267 } },
+  { name: "Rivers State University", logo: { src: "/images/clients/rivers-state-university.png", width: 122, height: 130 } },
+  { name: "Oil and Gas Trainers Association of Nigeria", logo: { src: "/images/clients/ogtan.png", width: 213, height: 213 } },
+  { name: "Circular Economy Alliance", logo: { src: "/images/clients/circular-economy-alliance.png", width: 299, height: 157 } },
+  { name: "African Centre for Environmental Protection", logo: { src: "/images/clients/acep.png", width: 177, height: 177 } },
+  { name: "RIVLED", logo: { src: "/images/clients/rivled.png", width: 205, height: 129 } },
+  { name: "e&i Centre", logo: { src: "/images/clients/e-and-i-centre.png", width: 426, height: 425 } },
+  { name: "Powerplus Engineering Ltd", logo: { src: "/images/clients/powerplus-engineering.png", width: 763, height: 382 } },
+  { name: "PE Energy Ltd", logo: { src: "/images/clients/pe-energy.png", width: 200, height: 67 } },
+  { name: "MCC Nigeria Ltd", logo: { src: "/images/clients/mcc-nigeria.png", width: 185, height: 185 } },
+  { name: "Tranet Global QC Limited", logo: { src: "/images/clients/tranet-global.png", width: 256, height: 81 } },
+  { name: "Costech", logo: { src: "/images/clients/costech.png", width: 419, height: 97 } },
+  { name: "Cap-Stone DNL", logo: { src: "/images/clients/cap-stone-dnl.png", width: 369, height: 122 } },
+  { name: "Nest Master Construction Ltd", logo: { src: "/images/clients/nest-master-construction.png", width: 284, height: 56 } },
+  { name: "Cinfores", logo: { src: "/images/clients/cinfores.png", width: 183, height: 183 } },
+  { name: "Appable Systems", logo: { src: "/images/clients/appable-systems.png", width: 446, height: 94 } },
+  { name: "Innovio Energy", logo: { src: "/images/clients/innovio-energy.png", width: 310, height: 207 } },
+  { name: "Chakel Security Service", logo: { src: "/images/clients/chakel-security.png", width: 157, height: 195 } },
+  { name: "G&G", logo: { src: "/images/clients/g-and-g.png", width: 203, height: 203 } },
+];
 
 export const experience =
   "Because of our many years of experience, we have been able to develop a team of skilled and experienced professionals who can handle various parts of our operations as a company giving us an edge in the market.";
