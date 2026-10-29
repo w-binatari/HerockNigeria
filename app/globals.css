@@ -405,8 +405,9 @@ a:hover {
 }
 
 .credential-list li {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
   gap: 0.25rem;
   padding: 1.5rem 0;
   border-top: 1px solid var(--line);
@@ -418,9 +419,20 @@ a:hover {
 
 .credential-logo {
   width: auto;
-  height: 56px;
+  height: 48px;
   object-fit: contain;
+  object-position: left center;
   margin-bottom: 0.5rem;
+}
+
+@media (min-width: 720px) {
+  .credential-list li {
+    grid-template-rows: 56px auto 1fr;
+  }
+
+  .credential-list li:not(:has(.credential-logo))::before {
+    content: "";
+  }
 }
 
 .credential-list strong {
@@ -511,8 +523,17 @@ a:hover {
   color: var(--ink);
 }
 
-.service-rows a:hover .service-title {
+.service-rows a:hover .service-title,
+.service-rows a[data-active] .service-title {
   color: var(--blue);
+}
+
+.service-rows a[data-active]::after {
+  right: 0;
+}
+
+.service-photo {
+  display: none;
 }
 
 /* Photo + text feature */
@@ -972,6 +993,25 @@ address {
   .split-head > div:first-child {
     position: sticky;
     top: 7rem;
+  }
+
+  .service-photo {
+    display: block;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    margin-top: 2rem;
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .service-photo img {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .service-photo img.is-active {
+    opacity: 1;
   }
 
   .feature {

@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 export default function CompanyPage() {
   return (
     <>
-      <PageHero kicker="Company" title={companyName} lede={description} />
+      <PageHero kicker="Company" title={companyName} lede={description} photo={photos.siteTeam} />
       <section className="section">
         <div className="wrap narrow">
           <h2>Office</h2>

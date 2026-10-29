@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NamedList } from "@/components/NamedList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { companyName, pages, projectManagementIntro, projectManagementTopics } from "@/lib/site";
+import { companyName, pages, photos, projectManagementIntro, projectManagementTopics } from "@/lib/site";
 
 const page = pages[5];
 
@@ -24,6 +24,7 @@ export default function ProjectManagementPage() {
         kicker="Projects"
         title="Project management"
         lede="Project management training for delivery on time, on budget, and to technical specifications."
+        photo={photos.siteTeam}
       />
       <section className="section">
         <div className="wrap narrow">

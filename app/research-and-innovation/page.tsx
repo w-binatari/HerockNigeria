@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { companyName, pages, researchCopy } from "@/lib/site";
+import { companyName, pages, photos, researchCopy } from "@/lib/site";
 
 const page = pages[4];
 
@@ -23,6 +23,7 @@ export default function ResearchPage() {
         kicker="Research"
         title="Research and innovation"
         lede="Training and capacity building for researchers in the oil and gas industry."
+        photo={photos.technician}
       />
       <section className="section">
         <div className="wrap narrow">

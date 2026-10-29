@@ -51,12 +51,23 @@ export const values = [
   { letter: "E", name: "Excellence" },
 ] as const;
 
-// Add `logo: "/images/<file>"` to an entry once the institution's logo file is in public/images.
-export const credentials: readonly { name: string; text: string; logo?: string }[] = [
+export const credentials: readonly {
+  name: string;
+  text: string;
+  logo?: { src: string; width: number; height: number };
+}[] = [
   { name: "Since 1993", text: "Over 30 years working from Port Harcourt." },
-  { name: "COREN", text: "Accredited by the Council for the Regulation of Engineering in Nigeria." },
+  {
+    name: "COREN",
+    text: "Accredited by the Council for the Regulation of Engineering in Nigeria.",
+    logo: { src: "/images/coren.jpg", width: 226, height: 50 },
+  },
   { name: "ISO 9001:2015", text: "Certified quality management system." },
-  { name: "OGTAN", text: "Member of the Oil and Gas Training Association of Nigeria." },
+  {
+    name: "OGTAN",
+    text: "Member of the Oil and Gas Trainers Association of Nigeria.",
+    logo: { src: "/images/ogtan.png", width: 501, height: 570 },
+  },
 ];
 
 export const photos = {
@@ -67,7 +78,7 @@ export const photos = {
 
 export const accreditations = [
   "Accredited by COREN (Council for the Regulation of Engineering in Nigeria).",
-  "Members of OGTAN (Oil and Gas Training Association of Nigeria).",
+  "Members of OGTAN (Oil and Gas Trainers Association of Nigeria).",
   "ISO 9001:2015 certified for Quality Management Systems.",
 ] as const;
 

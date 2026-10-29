@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { OfficeCta } from "@/components/OfficeCta";
+import { ServiceList } from "@/components/ServiceList";
 import {
   circularFocus,
   companyName,
@@ -21,26 +22,31 @@ import {
 const services = [
   {
     href: "/engineering-procurement-and-construction",
+    photo: photos.technician,
     title: "Engineering, procurement and construction",
     text: "Complete delivery of complex infrastructure projects, from first design to final execution, with training at handover.",
   },
   {
     href: "/human-capital-development",
+    photo: photos.siteTeam,
     title: "Human capital development and manpower supply",
     text: "Practical engineering, digital and QHSE training, and a vetted workforce ready to join your operations.",
   },
   {
     href: "/project-management",
+    photo: photos.siteTeam,
     title: "Project management",
     text: "Training for teams delivering work on time, on budget and to technical specification.",
   },
   {
     href: "/environment-and-circular-economy",
+    photo: photos.wasteTruck,
     title: "Environment and circular economy",
     text: "Waste management, sustainability and circular economy consulting and training.",
   },
   {
     href: "/research-and-innovation",
+    photo: photos.technician,
     title: "Research and innovation",
     text: "Capacity building for researchers, and links to commercialise innovation in oil and gas.",
   },
@@ -93,7 +99,7 @@ export default function HomePage() {
           {credentials.map((item) => (
             <li key={item.name}>
               {item.logo ? (
-                <Image className="credential-logo" src={item.logo} alt={`${item.name} logo`} width={160} height={64} />
+                <Image className="credential-logo" src={item.logo.src} alt={`${item.name} logo`} width={item.logo.width} height={item.logo.height} />
               ) : null}
               <strong>{item.name}</strong>
               <span>{item.text}</span>
@@ -103,22 +109,7 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <div className="wrap split-head">
-          <div>
-            <h2>What we do</h2>
-            <p className="intro">{servicesIntro}</p>
-          </div>
-          <ul className="service-rows">
-            {services.map((service) => (
-              <li key={service.href}>
-                <Link href={service.href}>
-                  <span className="service-title">{service.title}</span>
-                  <span className="service-text">{service.text}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ServiceList intro={servicesIntro} services={services} />
       </section>
 
       <section className="feature">
