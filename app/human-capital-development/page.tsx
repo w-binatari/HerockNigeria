@@ -22,9 +22,10 @@ const techIdeas = group[0];
 
 const trainingAreas = [
   { title: "Engineering training", text: engineeringTraining },
+  { title: "ICT and technology", text: ictTraining },
   {
-    title: "ICT and technology",
-    text: `${ictTraining} Digitalization and digital innovation training through ${techIdeas.name}.`,
+    title: "Digitalization and digital innovation",
+    text: `Training that helps teams adopt digital tools and ways of working, alongside ${techIdeas.name}, our digital skills company.`,
   },
   {
     title: "QHSE training",
@@ -64,7 +65,7 @@ export default function HumanCapitalPage() {
           </div>
         </div>
         <div className="wrap">
-          <div className="tiles">
+          <div className="tiles two">
             {trainingAreas.map((area) => (
               <div className="tile" key={area.title}>
                 <h3>{area.title}</h3>

@@ -17,11 +17,11 @@ export const contact = {
   city: "Port Harcourt",
   region: "Rivers State, Nigeria",
   phones: [
-    { display: "+234 (0) 806 923 9622", href: "tel:+234 (0) 806 923 9622" },
-    { display: "+234(0)8033035679", href: "tel:+2348033035679" },
+    { display: "+234 (0) 806 923 9622", href: "tel:+2348069239622" },
+    { display: "+234 (0) 803 303 5679", href: "tel:+2348033035679" },
   ],
   whatsapp: {
-    display: "+447828279565",
+    display: "+44 7828 279565",
     note: "WhatsApp only",
     href: "https://wa.me/447828279565",
   },
@@ -62,11 +62,20 @@ export const credentials: readonly {
     text: "Accredited by the Council for the Regulation of Engineering in Nigeria.",
     logo: { src: "/images/coren.jpg", width: 226, height: 50 },
   },
-  { name: "ISO 9001:2015", text: "Certified quality management system." },
+  {
+    name: "ISO 9001:2015",
+    text: "Certified quality management system.",
+    logo: { src: "/images/iso-9001.png", width: 317, height: 122 },
+  },
   {
     name: "OGTAN",
     text: "Member of the Oil and Gas Trainers Association of Nigeria.",
     logo: { src: "/images/ogtan.png", width: 501, height: 570 },
+  },
+  {
+    name: "HP Business Partner",
+    text: "Business partner of HP.",
+    logo: { src: "/images/hp-business-partner.png", width: 152, height: 117 },
   },
 ];
 
