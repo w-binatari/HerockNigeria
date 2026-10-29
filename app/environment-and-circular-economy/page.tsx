@@ -11,6 +11,7 @@ import {
   environmentServices,
   group,
   pages,
+  photos,
 } from "@/lib/site";
 
 const page = pages[6];
@@ -34,6 +35,7 @@ export default function EnvironmentPage() {
         kicker="Environment"
         title="Environment and circular economy"
         lede={environmentIntro}
+        photo={photos.wasteTruck}
       />
       <section className="section">
         <div className="wrap narrow">

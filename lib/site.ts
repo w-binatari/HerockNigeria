@@ -1,7 +1,7 @@
 export const siteUrl = "https://herocknigeria.vercel.app";
 
 export const logo = {
-  src: "https://www.herocknigeria.com/wp-content/uploads/2024/08/Untitled-design-20.png",
+  src: "/images/logo.png",
   alt: "Herock Nigeria",
   width: 500,
   height: 500,
@@ -51,8 +51,22 @@ export const values = [
   { letter: "E", name: "Excellence" },
 ] as const;
 
+// Add `logo: "/images/<file>"` to an entry once the institution's logo file is in public/images.
+export const credentials: readonly { name: string; text: string; logo?: string }[] = [
+  { name: "Since 1993", text: "Over 30 years working from Port Harcourt." },
+  { name: "COREN", text: "Accredited by the Council for the Regulation of Engineering in Nigeria." },
+  { name: "ISO 9001:2015", text: "Certified quality management system." },
+  { name: "OGTAN", text: "Member of the Oil and Gas Training Association of Nigeria." },
+];
+
+export const photos = {
+  siteTeam: { src: "/images/site-team.jpg", alt: "Herock engineers in hard hats and hi-vis vests reviewing drawings on a construction site" },
+  technician: { src: "/images/technician.jpg", alt: "A technician in a hard hat working on an electrical cabinet" },
+  wasteTruck: { src: "/images/waste-truck.jpg", alt: "A refuse compactor truck lifting a green waste bin" },
+} as const;
+
 export const accreditations = [
-  "Accredited by COREN (Council of Registered Engineers).",
+  "Accredited by COREN (Council for the Regulation of Engineering in Nigeria).",
   "Members of OGTAN (Oil and Gas Training Association of Nigeria).",
   "ISO 9001:2015 certified for Quality Management Systems.",
 ] as const;
@@ -236,7 +250,7 @@ export const jsonLd = {
   "@type": "Organization",
   name: companyName,
   url: siteUrl,
-  logo: logo.src,
+  logo: `${siteUrl}${logo.src}`,
   foundingDate: "1993",
   address: {
     "@type": "PostalAddress",

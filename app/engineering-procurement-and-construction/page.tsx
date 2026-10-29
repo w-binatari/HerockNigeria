@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { companyName, epcCopy, pages } from "@/lib/site";
+import { companyName, epcCopy, pages, photos } from "@/lib/site";
 
 const page = pages[2];
 
@@ -23,6 +23,7 @@ export default function EngineeringPage() {
         kicker="EPC"
         title="Engineering, procurement and construction"
         lede="Complete engineering, procurement and construction, from first design to final execution."
+        photo={photos.technician}
       />
       <section className="section">
         <div className="wrap narrow">

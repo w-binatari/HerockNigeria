@@ -10,6 +10,7 @@ import {
   manpower,
   manpowerIntro,
   pages,
+  photos,
   qhseCourses,
   qhseIntro,
   trainingIntro,
@@ -36,6 +37,7 @@ export default function HumanCapitalPage() {
         kicker="People"
         title="Human capital development and manpower supply"
         lede="Training and skills development, and a vetted workforce."
+        photo={photos.siteTeam}
       />
       <section className="section">
         <div className="wrap narrow">

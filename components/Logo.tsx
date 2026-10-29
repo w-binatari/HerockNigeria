@@ -7,7 +7,7 @@ type LogoProps = {
 
 export function Logo({ className, priority = false }: LogoProps) {
   return (
-    // The published PNG is used at its source URL so the mark is not redrawn or recompressed.
+    // The published PNG is served as-is so the mark is not redrawn or recompressed.
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className={className}

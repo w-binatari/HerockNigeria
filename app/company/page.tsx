@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
@@ -13,6 +14,7 @@ import {
   group,
   mission,
   pages,
+  photos,
   quality,
   values,
   vision,
@@ -83,13 +85,15 @@ export default function CompanyPage() {
         <div className="wrap">
           <h2>Mission and vision</h2>
           <div className="statement-grid">
-            <figure className="statement">
+            <figure className="statement has-photo">
+              <Image className="statement-photo" src={photos.siteTeam.src} alt="" fill sizes="(min-width: 720px) 50vw, 100vw" />
               <figcaption>Mission</figcaption>
               <blockquote>
                 <p>{mission}</p>
               </blockquote>
             </figure>
-            <figure className="statement">
+            <figure className="statement has-photo">
+              <Image className="statement-photo" src={photos.technician.src} alt="" fill sizes="(min-width: 720px) 50vw, 100vw" />
               <figcaption>Vision</figcaption>
               <blockquote>
                 <p>{vision}</p>
