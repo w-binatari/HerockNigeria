@@ -20,7 +20,7 @@ Private working notes for the Herock Nigeria website's search programme. Not ser
 
 ## Live verification of round 1
 
-See the section at the end of this file, added after release.
+Verified live on 2026-10-29; details at the end of this file.
 
 ## Coverage of the SEO toolkit (screened 2026-10-29)
 
@@ -55,3 +55,14 @@ The formal ledger validator needs Python 3.11; this machine has 3.9, so this scr
 | Roadmap (seo-plan) | completed | [05](05-roadmap.md) |
 | Action plan (seo-action-plan) | completed | [03](03-decision-record.md), [06](06-owner-actions.md) |
 | Implementation (optimise-seo) | completed | [04](04-implementation.md) |
+
+## Live verification, round 1 (2026-10-29, commit 119155c)
+
+Checked on https://herocknigeria.vercel.app about 30 seconds after release:
+
+- robots.txt, sitemap.xml, llms.txt, sitemap.md and all 8 `/md/*.md` copies return 200 with UTF-8 text types; Markdown copies carry `Link: rel="canonical"` to their HTML page.
+- The robots `#` comments and the sitemap `<!-- -->` comment survive delivery; robots rules and the 8 sitemap URLs are unchanged.
+- All 8 pages: one H1, intended title, self-referencing canonical, JSON-LD graph with Organization and WebSite.
+- Old WordPress paths redirect to the mapped page (2 hops for trailing-slash paths, 1 for the PDF).
+
+State: **delivered and verified** on the Vercel address. **Provider outcomes pending**: nothing has been submitted to Google or Bing yet (needs O2), so indexing and rankings are not yet observed.
