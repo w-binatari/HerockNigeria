@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ClientMarquee } from "@/components/ClientMarquee";
 import { Credentials } from "@/components/Credentials";
+import { CourseCards } from "@/components/CourseCards";
 import { Feature } from "@/components/Feature";
 import { GroupList } from "@/components/GroupList";
 import { OfficeCta } from "@/components/OfficeCta";
@@ -16,7 +17,6 @@ import {
   manpowerIntro,
   pages,
   photos,
-  qhseCourses,
   services,
   servicesIntro,
   values,
@@ -97,11 +97,7 @@ export default function HomePage() {
           </div>
           <div className="course-strip">
             <h3>QHSE courses we deliver</h3>
-            <ul>
-              {[...new Set(qhseCourses)].slice(0, 7).map((course) => (
-                <li key={course}>{course}</li>
-              ))}
-            </ul>
+            <CourseCards label="QHSE courses" />
             <p className="section-link">
               <Link href="/human-capital-development">Training and manpower supply</Link>
             </p>

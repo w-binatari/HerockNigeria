@@ -213,16 +213,37 @@ export const ictTraining =
 export const qhseIntro =
   "Comprehensive Health, Safety, and Environment programs to ensure a culture of safety and regulatory compliance. A few of the courses we have successfully handled and delivered include:";
 
+// Photos: Pexels (free licence) except the drums (Unsplash). First Aid (Basic) and Incident
+// Investigation from the profile are folded into the fuller courses.
 export const qhseCourses = [
-  "Incident Investigation and Root Cause Analysis",
-  "Permit to Work (PTW) & Safe Work Practices",
-  "Hazard Chemicals Handling and Storage",
-  "Minerals Oils (Safety) Regulations, 1997",
-  "Behaviour-Based Safety (BBS)",
-  "First Aid & CPR",
-  "HSE Audit and Compliance Awareness",
-  "Incident Investigation",
-  "First Aid (Basic)",
+  {
+    title: "Incident Investigation and Root Cause Analysis",
+    photo: { src: "/images/courses/incident-investigation.jpg", alt: "A team of African engineers in hard hats and safety vests reviewing drawings" },
+  },
+  {
+    title: "Permit to Work (PTW) and Safe Work Practices",
+    photo: { src: "/images/courses/permit-to-work.jpg", alt: "A site worker in a safety vest holding a hard hat on a road in Lafia, Nigeria" },
+  },
+  {
+    title: "Hazardous Chemicals Handling and Storage",
+    photo: { src: "/images/courses/chemicals.jpg", alt: "Stacked yellow and blue chemical drums" },
+  },
+  {
+    title: "Mineral Oils (Safety) Regulations, 1997",
+    photo: { src: "/images/courses/mineral-oils.jpg", alt: "Workers on an offshore oil platform deck" },
+  },
+  {
+    title: "Behaviour-Based Safety (BBS)",
+    photo: { src: "/images/courses/behaviour-based-safety.jpg", alt: "Two women in hard hats and high-visibility vests giving a thumbs up on site" },
+  },
+  {
+    title: "First Aid and CPR",
+    photo: { src: "/images/courses/first-aid.jpg", alt: "A trainee practising chest compressions on a CPR mannequin" },
+  },
+  {
+    title: "HSE Audit and Compliance Awareness",
+    photo: { src: "/images/courses/hse-audit.jpg", alt: "An engineer in a hard hat and safety vest writing on a clipboard" },
+  },
 ] as const;
 
 export const manpowerIntro =

@@ -591,23 +591,6 @@ a:hover {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.course-strip ul {
-  list-style: none;
-  margin: 0 0 1.5rem;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.course-strip li {
-  padding: 0.4rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  font-size: 0.95rem;
-  color: var(--white);
-}
-
 /* Group and values */
 
 .group-layout {
@@ -730,6 +713,19 @@ address {
   padding: 0.3rem 0;
 }
 
+/* Comfortable tap targets on phones; desktop keeps the tighter list. */
+@media (max-width: 719px) {
+  .footer-list li {
+    padding: 0;
+  }
+
+  .site-footer li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
 /* Inner page building blocks */
 
 .lead-split {
@@ -816,20 +812,95 @@ address {
   font-size: 1.2rem;
 }
 
-.course-chips {
-  list-style: none;
-  margin: 2rem 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+/* QHSE course cards: a sideways row that bleeds off the right edge so it reads as scrollable */
+
+.course-cards {
+  margin: 2rem 0 1.5rem;
 }
 
-.course-chips li {
-  padding: 0.55rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
+.course-track {
+  list-style: none;
+  margin: 0 calc(50% - 50vw) 0 0;
+  padding: 0 var(--gutter) 0 0;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 0;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.course-track::-webkit-scrollbar {
+  display: none;
+}
+
+.course-track:focus-visible {
+  outline-offset: 6px;
+}
+
+.course-card {
+  position: relative;
+  flex: 0 0 min(72vw, 290px);
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--blue);
+}
+
+.course-card img {
+  object-fit: cover;
+}
+
+.course-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 22, 52, 0.94) 0%, rgba(6, 22, 52, 0.7) 32%, rgba(6, 22, 52, 0) 62%);
+}
+
+.course-title {
+  position: absolute;
+  z-index: 1;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
   color: var(--white);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-stretch: 82%;
+  line-height: 1.12;
+}
+
+.course-arrows {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.course-arrows button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.course-arrows button:hover:not(:disabled) {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.course-arrows button:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .feature-list {

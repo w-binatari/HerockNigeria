@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CourseCards } from "@/components/CourseCards";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
@@ -12,7 +13,6 @@ import {
   manpowerIntro,
   pages,
   photos,
-  qhseCourses,
   qhseIntro,
   trainingIntro,
 } from "@/lib/site";
@@ -80,11 +80,7 @@ export default function HumanCapitalPage() {
         <div className="wrap">
           <h2>QHSE courses we have delivered</h2>
           <p className="intro">{qhseIntro}</p>
-          <ul className="course-chips">
-            {[...new Set(qhseCourses)].map((course) => (
-              <li key={course}>{course}</li>
-            ))}
-          </ul>
+          <CourseCards label="QHSE courses" />
         </div>
       </section>
 
