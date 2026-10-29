@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactDetails } from "@/components/ContactDetails";
 import { EnquiryForm } from "@/components/EnquiryForm";
+import { OfficeMap } from "@/components/OfficeMap";
 import { PageHero } from "@/components/PageHero";
 import { companyName, contact, pages, reachOut } from "@/lib/site";
 
@@ -32,6 +33,9 @@ export default function ContactPage() {
             <p className="stance">{reachOut}</p>
           </div>
           <EnquiryForm />
+        </div>
+        <div className="wrap">
+          <OfficeMap className="contact-map" />
         </div>
       </section>
     </>

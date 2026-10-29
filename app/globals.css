@@ -405,9 +405,10 @@ a:hover {
 }
 
 .credential-list li {
-  display: grid;
-  grid-template-rows: auto auto 1fr;
-  align-content: start;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
   gap: 0.25rem;
   padding: 1.5rem 0;
   border-top: 1px solid var(--line);
@@ -417,22 +418,20 @@ a:hover {
   border-top: 0;
 }
 
+/* Institution logos sit faintly behind the text so they don't change the layout. */
 .credential-logo {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: -1;
   width: auto;
-  height: 48px;
+  height: 80%;
+  max-width: 60%;
   object-fit: contain;
-  object-position: left center;
-  margin-bottom: 0.5rem;
-}
-
-@media (min-width: 720px) {
-  .credential-list li {
-    grid-template-rows: 56px auto 1fr;
-  }
-
-  .credential-list li:not(:has(.credential-logo))::before {
-    content: "";
-  }
+  object-position: right center;
+  transform: translateY(-50%);
+  opacity: 0.14;
+  pointer-events: none;
 }
 
 .credential-list strong {
@@ -894,6 +893,46 @@ address {
   max-width: 38rem;
 }
 
+.office-cta address {
+  margin-top: 1rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.office-cta-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.office-map {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.office-map iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: 4px;
+  background: var(--mist);
+}
+
+.office-cta .office-map a {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.contact-map {
+  margin-top: 4rem;
+}
+
+.contact-map iframe {
+  aspect-ratio: 16 / 7;
+  min-height: 320px;
+}
+
 .office-cta .kicker {
   color: var(--white);
   opacity: 0.8;
@@ -1037,6 +1076,11 @@ address {
   .group-layout {
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
+  }
+
+  .office-cta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
   }
 
   .contact-layout {
