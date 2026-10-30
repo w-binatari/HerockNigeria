@@ -6,10 +6,10 @@ export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://herockniger
 export const siteUpdated = "2026-10-29";
 
 export const logo = {
-  src: "/images/logo.png",
-  alt: "Herock Nigeria",
-  width: 500,
-  height: 500,
+  src: "/images/herock-logo.png",
+  alt: "Herock Nigeria Ltd.",
+  width: 304,
+  height: 198,
 } as const;
 
 export const companyName = "Herock Nigeria Ltd";
