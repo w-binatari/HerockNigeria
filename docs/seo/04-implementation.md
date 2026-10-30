@@ -32,3 +32,14 @@ When page content changes, edit it in `lib/site.ts` and update `siteUpdated`. If
 ## Live verification
 
 Recorded in [index](index.md) after release.
+
+## Round 2: client menu and About Us changes (2026-10-30)
+
+Approved by the client on 2026-10-30. Search-relevant effects:
+
+- `/company` became `/about-us` (permanent redirect from `/company`, `/about` and `/md/company.md`). The old WordPress `/about/` now lands on `/about-us`.
+- New listed pages: `/what-we-do` (all services) and `/our-expertise` (credentials, areas of expertise, QHSE courses, training centre photos, clients). Both are in the sitemap, footer and Markdown copies.
+- `/project-management` is unlisted until the client reintroduces it: out of the menu, sitemap, footer, llms.txt and Markdown copies, and served with `noindex, follow`. When it returns, remove the `robots` line in its page and add it back to `pages` and `services` in `lib/site.ts`.
+- Group companies were removed from the pages, structured data (`subOrganization`) and Markdown. The Envirotech section on the environment page stays (outside the approved removal).
+- Credentials now show OGTAN as "Category B member company"; ISO 9001:2015 comes first.
+- Training centre photos (Herock-labelled set supplied by Herock) are at `/images/training-hall/`.

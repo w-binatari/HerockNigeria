@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { companyName, contact, nav, social } from "@/lib/site";
+import { companyName, contact, pages, social } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -16,7 +16,7 @@ export function Footer() {
         <div>
           <h2>Pages</h2>
           <ul className="footer-list">
-            {nav.map((item) => (
+            {pages.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.title}</Link>
               </li>

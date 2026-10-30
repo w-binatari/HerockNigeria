@@ -9,26 +9,27 @@ import { nav } from "@/lib/site";
 export function Header() {
   const pathname = usePathname();
   const [menuPath, setMenuPath] = useState<string | null>(null);
+  const [subPath, setSubPath] = useState<string | null>(null);
   const open = menuPath === pathname;
+  const subOpen = subPath === pathname;
   const panelId = useId();
-  const primary = nav.filter((item) => item.href !== "/" && item.href !== "/company" && item.href !== "/contact");
-  const company = nav.find((item) => item.href === "/company");
-  const contact = nav.find((item) => item.href === "/contact");
+  const subId = useId();
 
   useEffect(() => {
-    if (!open) {
+    if (!open && !subOpen) {
       return;
     }
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         setMenuPath(null);
+        setSubPath(null);
       }
     }
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
+  }, [open, subOpen]);
 
   return (
     <header className="site-header">
@@ -47,30 +48,46 @@ export function Header() {
             {open ? "Close" : "Menu"}
           </button>
           <ul id={panelId} className={open ? "nav-list is-open" : "nav-list"}>
-            {primary.map((item) => {
-              const current = pathname === item.href;
+            {nav.map((item) => {
+              const children = "children" in item ? item.children : null;
+              const current =
+                pathname === item.href || (children?.some((child) => child.href === pathname) ?? false);
               return (
-                <li key={item.href}>
-                  <Link href={item.href} aria-current={current ? "page" : undefined}>
+                <li key={item.href} className={children ? (subOpen ? "has-sub is-open" : "has-sub") : undefined}>
+                  <Link href={item.href} aria-current={pathname === item.href ? "page" : current ? "true" : undefined}>
                     {item.label}
                   </Link>
+                  {children ? (
+                    <>
+                      <button
+                        type="button"
+                        className="sub-toggle"
+                        aria-expanded={subOpen}
+                        aria-controls={subId}
+                        aria-label={`${item.label} services`}
+                        onClick={() => setSubPath((value) => (value === pathname ? null : pathname))}
+                      >
+                        <span aria-hidden="true">▾</span>
+                      </button>
+                      <ul id={subId} className="sub-list">
+                        {children.map((child) => (
+                          <li key={child.href}>
+                            <Link href={child.href} aria-current={pathname === child.href ? "page" : undefined}>
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : null}
                 </li>
               );
             })}
-            {company ? (
-              <li className="nav-company">
-                <Link href={company.href} aria-current={pathname === company.href ? "page" : undefined}>
-                  {company.label}
-                </Link>
-              </li>
-            ) : null}
-            {contact ? (
-              <li className="nav-cta">
-                <Link className="button" href={contact.href} aria-current={pathname === contact.href ? "page" : undefined}>
-                  {contact.label}
-                </Link>
-              </li>
-            ) : null}
+            <li className="nav-cta">
+              <Link className="button" href="/contact" aria-current={pathname === "/contact" ? "page" : undefined}>
+                Contact us
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

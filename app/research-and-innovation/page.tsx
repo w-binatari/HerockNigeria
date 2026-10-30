@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { RelatedServices } from "@/components/RelatedServices";
-import { companyName, pages, photos, researchCopy, researchSteps } from "@/lib/site";
+import { companyName, pageFor, photos, researchCopy, researchSteps } from "@/lib/site";
 
-const page = pages[4];
+const page = pageFor("/research-and-innovation");
 
 
 export const metadata: Metadata = {
@@ -59,7 +58,6 @@ export default function ResearchPage() {
         </p>
       </Feature>
 
-      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about research and innovation." />
     </>
   );

@@ -3,7 +3,7 @@
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://herocknigeria.vercel.app").replace(/\/$/, "");
 
 // Date the published content last changed; feeds the sitemap and Markdown copies.
-export const siteUpdated = "2026-10-29";
+export const siteUpdated = "2026-10-30";
 
 export const logo = {
   src: "/images/herock-logo.png",
@@ -56,25 +56,25 @@ export const values = [
   { letter: "E", name: "Excellence" },
 ] as const;
 
+// Order matters: the client asked for ISO first, with every logo shown clearly.
 export const credentials: readonly {
   name: string;
   text: string;
   logo?: { src: string; width: number; height: number };
 }[] = [
-  { name: "Since 1993", text: "Over 30 years working from Port Harcourt." },
-  {
-    name: "COREN",
-    text: "Accredited by the Council for the Regulation of Engineering in Nigeria.",
-    logo: { src: "/images/coren.jpg", width: 226, height: 50 },
-  },
   {
     name: "ISO 9001:2015",
     text: "Certified quality management system.",
     logo: { src: "/images/iso-9001.png", width: 317, height: 122 },
   },
   {
-    name: "OGTAN",
-    text: "Member of the Oil and Gas Trainers Association of Nigeria.",
+    name: "COREN",
+    text: "Accredited by the Council for the Regulation of Engineering in Nigeria.",
+    logo: { src: "/images/coren.jpg", width: 226, height: 50 },
+  },
+  {
+    name: "OGTAN Category B",
+    text: "Category B member company of the Oil and Gas Trainers Association of Nigeria.",
     logo: { src: "/images/ogtan.png", width: 501, height: 570 },
   },
   {
@@ -82,6 +82,7 @@ export const credentials: readonly {
     text: "Business partner of HP.",
     logo: { src: "/images/hp-business-partner.png", width: 152, height: 117 },
   },
+  { name: "Since 1993", text: "Over 30 years working from Port Harcourt." },
 ];
 
 export const photos = {
@@ -101,6 +102,17 @@ export const photos = {
   },
 } as const;
 
+// Herock Training Centre, Port Harcourt. Photos supplied by Herock (Herock-labelled set).
+export const trainingHall = [
+  { src: "/images/training-hall/session.jpg", width: 1080, height: 810, alt: "Participants at their desks during a session in the Herock Training Centre" },
+  { src: "/images/training-hall/written-exercise.jpg", width: 1080, height: 810, alt: "Trainees working through a written exercise in the Herock Training Centre" },
+  { src: "/images/training-hall/trainees.jpg", width: 1080, height: 810, alt: "A group of trainees in the Herock Training Centre" },
+  { src: "/images/training-hall/classroom.jpg", width: 1080, height: 810, alt: "Herock Training Centre classroom with tablet-arm chairs, a desk and a whiteboard" },
+  { src: "/images/training-hall/u-shape.jpg", width: 810, height: 1080, alt: "Training room with tables set out in a U shape" },
+  { src: "/images/training-hall/seminar.jpg", width: 810, height: 1080, alt: "Training room with rows of chairs facing a whiteboard" },
+  { src: "/images/training-hall/rows.jpg", width: 810, height: 1080, alt: "Classroom with rows of tablet-arm chairs" },
+] as const;
+
 export const services = [
   {
     href: "/engineering-procurement-and-construction",
@@ -113,12 +125,6 @@ export const services = [
     title: "Human capital development and manpower supply",
     text: "Practical engineering, digital and QHSE training, and a vetted workforce ready to join your operations.",
     photo: photos.workforceCrew,
-  },
-  {
-    href: "/project-management",
-    title: "Project management",
-    text: "Training for teams delivering work on time, on budget and to technical specification.",
-    photo: photos.projectPlanning,
   },
   {
     href: "/environment-and-circular-economy",
@@ -173,44 +179,32 @@ export const quality =
   "We are committed to delivering high-quality services and excellent training that exceed the expectations of our clients, enabling them to achieve their goals. Quality and Excellence is at the heart of what we do and we are passionate about helping our clients succeed.";
 
 export const servicesIntro =
-  "We provide leading solutions across five main service areas. While we have expertise in many fields, a key part of our work is training and building capacity. We believe that giving people the right knowledge and skills is the best way to ensure long-term success.";
+  "We provide leading solutions across four main service areas. While we have expertise in many fields, a key part of our work is training and building capacity. We believe that giving people the right knowledge and skills is the best way to ensure long-term success.";
 
 export const clientsLine =
   "Over the years, we have worked with several top organizations across several sectors and industries and this has increased our skill and experience making us the best at what we do.";
 
-export const group: readonly {
-  name: string;
-  role: string;
-  url?: string;
-  logo?: { src: string; width: number; height: number };
-}[] = [
-  {
-    name: "Herock Tech-IDEAS",
-    role: "Digital skills development.",
-  },
-  {
-    name: "Herock E-Ville Academy",
-    role: "Online learning for secondary, tertiary and professional learners.",
-    url: "https://www.herockeville.com",
-    logo: { src: "/images/group/eville.png", width: 546, height: 457 },
-  },
-  {
-    name: "Herock Integrated Safety Services Limited",
-    role: "Occupational health and safety.",
-  },
-  {
-    name: "Herock Envirotech Limited",
-    role: "Cleantech that turns agricultural waste into biodegradable oil-spill sorbents.",
-    url: "https://www.herockenvirotech.com",
-    logo: { src: "/images/group/envirotech.png", width: 368, height: 138 },
-  },
-];
+// Sister company featured on the environment page.
+export const envirotechUrl = "https://www.herockenvirotech.com";
 
 export const trainingIntro =
   "We design and execute targeted modules to build a high-performing workforce. Our curriculum is practical, industry-aligned, and delivered by experts.";
 
 export const engineeringTraining =
   "Specialized Train the Trainer sessions for the Oil and Gas Sector, Construction and other industries, Drilling Engineering, Subsea Engineering, Automation and Control, Operations and Maintenance (O & M) - Electrical, Instrumentation/Mechanical Engineering Project Management.";
+
+// Disciplines from the 2026 company profile's engineering training list, plus the other training lines.
+export const expertiseAreas = [
+  "Train the Trainer for oil and gas, construction and other industries",
+  "Drilling engineering",
+  "Subsea engineering",
+  "Automation and control",
+  "Operations and maintenance: electrical, instrumentation and mechanical",
+  "Engineering project management",
+  "QHSE and regulatory compliance",
+  "ICT and digital skills",
+  "Circular economy and sustainability",
+] as const;
 
 export const ictTraining =
   "Digital skills, software applications, and technological tools necessary for the modern workplace.";
@@ -356,6 +350,7 @@ export const researchSteps = [
   },
 ] as const;
 
+// Every public, listed page. Feeds the sitemap, footer and Markdown copies.
 export const pages = [
   {
     href: "/",
@@ -365,11 +360,25 @@ export const pages = [
       "Herock Nigeria Ltd is an EPC and man power supply company in Port Harcourt, Rivers State, providing engineering, QHSE training and manpower since 1993.",
   },
   {
-    href: "/company",
-    label: "Company",
-    title: "Company",
+    href: "/about-us",
+    label: "About Us",
+    title: "About us",
     description:
-      "Herock Nigeria Ltd in Port Harcourt: vision, mission, values, and the Nigerian companies that sit under it.",
+      "Herock Nigeria Ltd, Port Harcourt, since 1993: ISO 9001:2015 certified, COREN accredited and an OGTAN Category B member. Mission, vision and I-RISE values.",
+  },
+  {
+    href: "/what-we-do",
+    label: "What We Do",
+    title: "What we do",
+    description:
+      "Engineering, procurement and construction, human capital development and manpower supply, environment and circular economy, and research and innovation.",
+  },
+  {
+    href: "/our-expertise",
+    label: "Our Expertise",
+    title: "Our expertise",
+    description:
+      "Herock's expertise in oil and gas, engineering and QHSE training, the courses we have delivered, our credentials and the clients we work with.",
   },
   {
     href: "/engineering-procurement-and-construction",
@@ -380,24 +389,10 @@ export const pages = [
   },
   {
     href: "/human-capital-development",
-    label: "People",
+    label: "Human capital",
     title: "Human capital development and manpower supply",
     description:
       "QHSE, engineering and digital training, and vetted manpower supply, from Herock Nigeria Ltd in Port Harcourt.",
-  },
-  {
-    href: "/research-and-innovation",
-    label: "Research",
-    title: "Research and innovation",
-    description:
-      "Training and capacity building for researchers, and linkages for commercialization in the oil and gas industry.",
-  },
-  {
-    href: "/project-management",
-    label: "Projects",
-    title: "Project management",
-    description:
-      "Project management training in planning, risk, resources, and stakeholder communication.",
   },
   {
     href: "/environment-and-circular-economy",
@@ -405,6 +400,13 @@ export const pages = [
     title: "Environment and circular economy",
     description:
       "Environmental services and circular economy training and consultancy from Herock Nigeria Ltd.",
+  },
+  {
+    href: "/research-and-innovation",
+    label: "Research",
+    title: "Research and innovation",
+    description:
+      "Training and capacity building for researchers, and linkages for commercialization in the oil and gas industry.",
   },
   {
     href: "/contact",
@@ -415,7 +417,23 @@ export const pages = [
   },
 ] as const;
 
-export const nav = pages;
+export type SitePage = (typeof pages)[number];
+export const pageFor = (href: SitePage["href"]) => pages.find((page) => page.href === href)!;
+
+// Unlisted until the client reintroduces it: no menu or sitemap entry, and not indexed.
+export const projectManagementPage = {
+  href: "/project-management",
+  title: "Project management",
+  description: "Project management training in planning, risk, resources, and stakeholder communication.",
+} as const;
+
+// The four menu tabs (client's wording), with the services under What We Do.
+export const nav = [
+  { href: "/", label: "Home" },
+  { href: "/about-us", label: "About Us" },
+  { href: "/what-we-do", label: "What We Do", children: services.map(({ href, title }) => ({ href, label: title })) },
+  { href: "/our-expertise", label: "Our Expertise" },
+] as const;
 
 // One entity graph for every page: the company and the website that represents it.
 const organizationId = `${siteUrl}/#organization`;
@@ -463,12 +481,6 @@ export const jsonLd = {
         "Oil and gas training",
       ],
       memberOf: { "@type": "Organization", name: "Oil and Gas Trainers Association of Nigeria" },
-      subOrganization: group.map((item) => ({
-        "@type": "Organization",
-        name: item.name,
-        description: item.role,
-        ...(item.url ? { url: item.url } : {}),
-      })),
       sameAs: [contact.website.href, ...social.map((item) => item.href)].filter(
         (href) => new URL(href).hostname.replace(/^www\./, "") !== new URL(siteUrl).hostname.replace(/^www\./, ""),
       ),

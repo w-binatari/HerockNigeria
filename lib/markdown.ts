@@ -12,18 +12,17 @@ import {
   credentials,
   description,
   engineeringTraining,
+  envirotechUrl,
   environmentIntro,
   environmentServices,
   epcStages,
   experience,
-  group,
+  expertiseAreas,
   ictTraining,
   manpower,
   manpowerIntro,
   mission,
   pages,
-  projectManagementIntro,
-  projectTopics,
   qhseCourses,
   qhseIntro,
   quality,
@@ -33,6 +32,7 @@ import {
   servicesIntro,
   siteUpdated,
   siteUrl,
+  trainingHall,
   trainingIntro,
   values,
   vision,
@@ -81,13 +81,9 @@ ${clientsLine}
 
 ${list(clients.map((client) => client.name))}
 
-## The Herock group
-
-${group.map((item) => `- **${item.name}.** ${item.role}${item.url ? ` ${item.url}` : ""}`).join("\n")}
-
 ${contactBlock}`,
 
-  "/company": () => `${companyName} has worked from Port Harcourt, Rivers State, since 1993.
+  "/about-us": () => `Herock Nigeria, since 1993. ${companyName} has worked from Port Harcourt, Rivers State, for over 30 years.
 
 ${experience}
 
@@ -113,9 +109,41 @@ ${list(values.map((value) => value.name))}
 
 ${credentials.map((item) => `- **${item.name}.** ${item.text}`).join("\n")}
 
-## The Herock group
+## Clients
 
-${group.map((item) => `- **${item.name}.** ${item.role}${item.url ? ` ${item.url}` : ""}`).join("\n")}
+${clientsLine}
+
+${list(clients.map((client) => client.name))}
+
+${contactBlock}`,
+
+  "/what-we-do": () => `${servicesIntro}
+
+## Services
+
+${services.map((service) => `- [${service.title}](${siteUrl}${markdownPath(service.href)}): ${service.text}`).join("\n")}
+
+${contactBlock}`,
+
+  "/our-expertise": () => `${trainingIntro} We believe that giving people the right knowledge and skills is the best way to ensure long-term success.
+
+## Credentials
+
+${credentials.map((item) => `- **${item.name}.** ${item.text}`).join("\n")}
+
+## Areas of expertise
+
+${list(expertiseAreas)}
+
+## QHSE courses we have delivered
+
+${list(qhseCourses.map((course) => course.title))}
+
+## The Herock Training Centre
+
+Training rooms in Port Harcourt, set up for classroom sessions, workshops and group work. Photos:
+
+${trainingHall.map((photo) => `- ${photo.alt}: ${siteUrl}${photo.src}`).join("\n")}
 
 ## Clients
 
@@ -143,7 +171,7 @@ ${contactBlock}`,
 
 - **Engineering training.** ${engineeringTraining}
 - **ICT and technology.** ${ictTraining}
-- **Digitalization and digital innovation.** Training that helps teams adopt digital tools and ways of working, alongside Herock Tech-IDEAS, our digital skills company.
+- **Digitalization and digital innovation.** Training that helps teams adopt digital tools and ways of working.
 - **QHSE training.** Health, safety and environment programmes that build a culture of safety and regulatory compliance.
 
 ## QHSE courses we have delivered
@@ -168,14 +196,6 @@ ${pairs(researchSteps)}
 
 ${contactBlock}`,
 
-  "/project-management": () => `${projectManagementIntro.replace(/ We cover:$/, "")}
-
-## Topics covered
-
-${pairs(projectTopics)}
-
-${contactBlock}`,
-
   "/environment-and-circular-economy": () => `${environmentIntro}
 
 ## Services
@@ -192,7 +212,7 @@ ${list(circularConsultancy)}
 
 ## Herock Envirotech
 
-Our sister company Herock Envirotech Limited turns poultry feather waste into the Chicken Feather Oil Pillow, a biodegradable oil-spill sorbent that absorbs over ten times its own weight in oil and floats on water. It is validated at technology readiness level 7. In 2026 it was one of the top eight finalists in the Nigerian Academy of Engineering's 3rd National Innovation Competition and received the Academy's Certificate of Merit. https://www.herockenvirotech.com
+Our sister company Herock Envirotech Limited turns poultry feather waste into the Chicken Feather Oil Pillow, a biodegradable oil-spill sorbent that absorbs over ten times its own weight in oil and floats on water. It is validated at technology readiness level 7. In 2026 it was one of the top eight finalists in the Nigerian Academy of Engineering's 3rd National Innovation Competition and received the Academy's Certificate of Merit. ${envirotechUrl}
 
 ${contactBlock}`,
 
@@ -231,7 +251,7 @@ ${pages.map((page) => `| [${page.title}](${htmlUrl(page.href)}) | ${page.descrip
 
 export function llmsTxt() {
   const link = (page: Page, note: string) => `- [${page.title}](${siteUrl}${markdownPath(page.href)}): ${note}`;
-  const byHref = (href: string) => pages.find((page) => page.href === href)!;
+  const byHref = (href: Page["href"]) => pages.find((page) => page.href === href)!;
   return `# ${companyName}
 
 > ${description} Based at ${contact.street}, ${contact.city}, ${contact.region}.
@@ -242,15 +262,16 @@ If you are an LLM looking for information about ${companyName}, use the site map
 
 ## Company
 
-${link(byHref("/"), "overview, services, credentials, clients and the Herock group")}
-${link(byHref("/company"), "history since 1993, mission, vision, values, credentials and group companies")}
+${link(byHref("/"), "overview, services, credentials, clients and values")}
+${link(byHref("/about-us"), "history since 1993, credentials (ISO 9001:2015, COREN, OGTAN Category B), mission, vision and I-RISE values")}
+${link(byHref("/our-expertise"), "areas of expertise, QHSE courses delivered, the Herock Training Centre and clients")}
 ${link(byHref("/contact"), "address, phone numbers, WhatsApp and email")}
 
 ## Services
 
+${link(byHref("/what-we-do"), "all services in one list")}
 ${link(byHref("/engineering-procurement-and-construction"), "EPC delivery stages and handover training")}
-${link(byHref("/human-capital-development"), "engineering, ICT, digital and QHSE training, the QHSE courses delivered, and manpower supply")}
-${link(byHref("/project-management"), "project management training topics")}
+${link(byHref("/human-capital-development"), "engineering, ICT, digital and QHSE training, and manpower supply")}
 ${link(byHref("/environment-and-circular-economy"), "environmental services, circular economy consultancy and Herock Envirotech")}
 ${link(byHref("/research-and-innovation"), "support for researchers in oil and gas")}
 `;

@@ -13,14 +13,17 @@ const nextConfig: NextConfig = {
       // Addresses from the previous WordPress site at herocknigeria.com, so links and search
       // history carry over once the domain points here.
       ...[
-        ["/about", "/company"],
+        ["/about", "/about-us"],
         ["/e-p-c-engineering-procurement-and-construction", "/engineering-procurement-and-construction"],
         ["/equipment-leasing-manpower-supply", "/human-capital-development"],
         ["/environmental-circular-economy-services", "/environment-and-circular-economy"],
         ["/contact-us", "/contact"],
         ["/feed", "/"],
         ["/comments/feed", "/"],
-        ["/wp-content/uploads/:path*", "/company"],
+        ["/wp-content/uploads/:path*", "/about-us"],
+        // Renamed in the October 2026 menu change.
+        ["/company", "/about-us"],
+        ["/md/company.md", "/md/about-us.md"],
       ].map(([source, destination]) => ({ source, destination, permanent: true })),
     ];
   },

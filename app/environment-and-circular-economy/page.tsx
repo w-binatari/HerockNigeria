@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { RelatedServices } from "@/components/RelatedServices";
 import {
   ceaUrl,
   circularConsultancy,
@@ -10,13 +9,12 @@ import {
   companyName,
   environmentIntro,
   environmentServices,
-  group,
-  pages,
+  envirotechUrl,
+  pageFor,
   photos,
 } from "@/lib/site";
 
-const page = pages[6];
-const envirotech = group.find((item) => item.name === "Herock Envirotech Limited")!;
+const page = pageFor("/environment-and-circular-economy");
 
 export const metadata: Metadata = {
   title: page.title,
@@ -44,7 +42,7 @@ export default function EnvironmentPage() {
           <div>
             <p>{environmentIntro}</p>
             <p>
-              {envirotech.name}, part of the Herock group, develops biodegradable oil-spill sorbents made
+              Herock Envirotech Limited, our sister company, develops biodegradable oil-spill sorbents made
               from agricultural waste.
             </p>
           </div>
@@ -89,17 +87,14 @@ export default function EnvironmentPage() {
           In 2026 it was one of the top eight finalists in the Nigerian Academy of Engineering&apos;s 3rd
           National Innovation Competition, and received the Academy&apos;s Certificate of Merit.
         </p>
-        {envirotech.url ? (
-          <p className="section-link">
-            <a href={envirotech.url} target="_blank" rel="noopener noreferrer">
-              Visit Herock Envirotech
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          </p>
-        ) : null}
+        <p className="section-link">
+          <a href={envirotechUrl} target="_blank" rel="noopener noreferrer">
+            Visit Herock Envirotech
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </p>
       </Feature>
 
-      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about environmental and circular-economy work." />
     </>
   );

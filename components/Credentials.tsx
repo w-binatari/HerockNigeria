@@ -7,15 +7,15 @@ export function Credentials() {
       <ul className="wrap credential-list">
         {credentials.map((item) => (
           <li key={item.name}>
-            {item.logo ? (
-              <Image
-                className="credential-logo"
-                src={item.logo.src}
-                alt={`${item.name} logo`}
-                width={item.logo.width}
-                height={item.logo.height}
-              />
-            ) : null}
+            <span className="credential-mark">
+              {item.logo ? (
+                <Image src={item.logo.src} alt={`${item.name} logo`} width={item.logo.width} height={item.logo.height} />
+              ) : (
+                <span className="credential-year" aria-hidden="true">
+                  1993
+                </span>
+              )}
+            </span>
             <strong>{item.name}</strong>
             <span>{item.text}</span>
           </li>

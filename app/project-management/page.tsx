@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { RelatedServices } from "@/components/RelatedServices";
-import { companyName, pages, photos, projectManagementIntro, projectTopics } from "@/lib/site";
+import { companyName, projectManagementPage, photos, projectManagementIntro, projectTopics } from "@/lib/site";
 
-const page = pages[5];
-
+const page = projectManagementPage;
 
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   alternates: { canonical: page.href },
+  // Unlisted until the client reintroduces it.
+  robots: { index: false, follow: true },
   openGraph: {
     title: `${page.title} · ${companyName}`,
     description: page.description,
@@ -54,7 +54,6 @@ export default function ProjectManagementPage() {
         </p>
       </Feature>
 
-      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about project management training." />
     </>
   );

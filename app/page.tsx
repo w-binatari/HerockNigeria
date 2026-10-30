@@ -5,7 +5,6 @@ import { ClientMarquee } from "@/components/ClientMarquee";
 import { Credentials } from "@/components/Credentials";
 import { CourseCards } from "@/components/CourseCards";
 import { Feature } from "@/components/Feature";
-import { GroupList } from "@/components/GroupList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { ServiceList } from "@/components/ServiceList";
 import {
@@ -15,7 +14,7 @@ import {
   environmentIntro,
   manpower,
   manpowerIntro,
-  pages,
+  pageFor,
   photos,
   services,
   servicesIntro,
@@ -24,11 +23,11 @@ import {
 
 export const metadata: Metadata = {
   title: { absolute: `${companyName} | EPC, training and man power supply in Port Harcourt` },
-  description: pages[0].description,
+  description: pageFor("/").description,
   alternates: { canonical: "/" },
   openGraph: {
     title: companyName,
-    description: pages[0].description,
+    description: pageFor("/").description,
     url: "/",
   },
 };
@@ -114,27 +113,22 @@ export default function HomePage() {
       </Feature>
 
       <section className="section">
-        <div className="wrap group-layout">
-          <div>
-            <h2>The Herock group</h2>
-            <GroupList />
-          </div>
-          <div>
-            <h2>Our values</h2>
-            <ul className="value-grid" aria-label="I-RISE">
-              {values.map((value) => (
-                <li className="value" key={value.name}>
-                  <span className="value-letter" aria-hidden="true">
-                    {value.letter}
-                  </span>
-                  <span className="value-name">{value.name}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="section-link">
-              <Link href="/company">Company, mission and vision</Link>
-            </p>
-          </div>
+        <div className="wrap values-block">
+          <h2>Our values</h2>
+          <p className="intro">I-RISE: the five values behind how we work.</p>
+          <ul className="value-grid" aria-label="I-RISE">
+            {values.map((value) => (
+              <li className="value" key={value.name}>
+                <span className="value-letter" aria-hidden="true">
+                  {value.letter}
+                </span>
+                <span className="value-name">{value.name}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="section-link">
+            <Link href="/about-us">About us, our mission and vision</Link>
+          </p>
         </div>
       </section>
 

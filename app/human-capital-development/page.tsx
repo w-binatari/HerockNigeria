@@ -3,29 +3,26 @@ import { CourseCards } from "@/components/CourseCards";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { RelatedServices } from "@/components/RelatedServices";
 import {
   companyName,
   engineeringTraining,
-  group,
   ictTraining,
   manpower,
   manpowerIntro,
-  pages,
+  pageFor,
   photos,
   qhseIntro,
   trainingIntro,
 } from "@/lib/site";
 
-const page = pages[3];
-const techIdeas = group.find((item) => item.name === "Herock Tech-IDEAS")!;
+const page = pageFor("/human-capital-development");
 
 const trainingAreas = [
   { title: "Engineering training", text: engineeringTraining },
   { title: "ICT and technology", text: ictTraining },
   {
     title: "Digitalization and digital innovation",
-    text: `Training that helps teams adopt digital tools and ways of working, alongside ${techIdeas.name}, our digital skills company.`,
+    text: "Training that helps teams adopt digital tools and ways of working.",
   },
   {
     title: "QHSE training",
@@ -96,7 +93,6 @@ export default function HumanCapitalPage() {
         </ul>
       </Feature>
 
-      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about training and manpower." />
     </>
   );

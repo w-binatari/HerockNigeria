@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { OfficeMap } from "@/components/OfficeMap";
 import { PageHero } from "@/components/PageHero";
-import { companyName, contact, pages, reachOut } from "@/lib/site";
+import { companyName, contact, pageFor, reachOut } from "@/lib/site";
 
-const page = pages[7];
+const page = pageFor("/contact");
 
 export const metadata: Metadata = {
   title: page.title,

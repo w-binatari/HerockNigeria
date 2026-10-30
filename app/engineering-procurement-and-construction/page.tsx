@@ -3,10 +3,9 @@ import { Credentials } from "@/components/Credentials";
 import { Feature } from "@/components/Feature";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
-import { RelatedServices } from "@/components/RelatedServices";
-import { companyName, pages, photos, epcStages } from "@/lib/site";
+import { companyName, pageFor, photos, epcStages } from "@/lib/site";
 
-const page = pages[2];
+const page = pageFor("/engineering-procurement-and-construction");
 
 
 export const metadata: Metadata = {
@@ -70,7 +69,6 @@ export default function EngineeringPage() {
 
       <Credentials />
 
-      <RelatedServices current={page.href} />
       <OfficeCta intro="Call or email the Port Harcourt office about engineering, procurement and construction." />
     </>
   );

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Credentials } from "@/components/Credentials";
-import { GroupList } from "@/components/GroupList";
 import { OfficeCta } from "@/components/OfficeCta";
 import { PageHero } from "@/components/PageHero";
 import { ServiceList } from "@/components/ServiceList";
@@ -12,7 +11,7 @@ import {
   description,
   experience,
   mission,
-  pages,
+  pageFor,
   photos,
   quality,
   services,
@@ -20,7 +19,7 @@ import {
   vision,
 } from "@/lib/site";
 
-const page = pages[1];
+const page = pageFor("/about-us");
 
 export const metadata: Metadata = {
   title: page.title,
@@ -33,22 +32,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CompanyPage() {
+export default function AboutPage() {
   return (
     <>
-      <PageHero kicker="Company" title={companyName} lede={description} photo={photos.siteTeam} />
+      <PageHero kicker="About us" title="Herock Nigeria, since 1993" lede={description} photo={photos.siteTeam} />
+
+      <Credentials />
 
       <section className="section">
         <div className="wrap lead-split">
-          <h2>Port Harcourt, since 1993.</h2>
+          <h2>Over 30 years of work from Port Harcourt.</h2>
           <div>
             <p>{experience}</p>
             <p>{quality}</p>
           </div>
         </div>
       </section>
-
-      <Credentials />
 
       <section className="section">
         <div className="wrap">
@@ -79,24 +78,19 @@ export default function CompanyPage() {
       </section>
 
       <section className="section mist">
-        <div className="wrap group-layout">
-          <div>
-            <h2>The Herock group</h2>
-            <GroupList />
-          </div>
-          <div>
-            <h2>Our values</h2>
-            <ul className="value-grid" aria-label="I-RISE">
-              {values.map((value) => (
-                <li className="value" key={value.name}>
-                  <span className="value-letter" aria-hidden="true">
-                    {value.letter}
-                  </span>
-                  <span className="value-name">{value.name}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="wrap values-block">
+          <h2>Our values</h2>
+          <p className="intro">I-RISE: the five values behind how we work.</p>
+          <ul className="value-grid" aria-label="I-RISE">
+            {values.map((value) => (
+              <li className="value" key={value.name}>
+                <span className="value-letter" aria-hidden="true">
+                  {value.letter}
+                </span>
+                <span className="value-name">{value.name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -13,9 +13,10 @@ Each query family has exactly one page that should win it, so pages do not compe
 | --- | --- | --- | --- |
 | Brand + country | herock nigeria, herock nigeria ltd, herock nigeria limited | `/` | Exact name in title, H1 copy, schema `name` and `alternateName`, domain name after the move |
 | Brand alone, searched in Nigeria | herock | `/` | Google localises results; a verified Business Profile in Port Harcourt plus the domain move are the main levers |
-| Brand + place | herock port harcourt, herock rivers state | `/contact` | Address in page, schema and Business Profile |
+| Brand + place | herock port harcourt, herock rivers state | `/contact` |
+| Training centre | herock training centre, training centre port harcourt | `/our-expertise` | Address in page, schema and Business Profile |
 | Brand + service | herock training, herock manpower, herock epc | matching service page | Brand + service words in title and copy |
-| Group names | herock envirotech, herock e-ville, herock tech-ideas, herock safety services | Their own sites, with `/company` as the parent | Two-way links between the group sites |
+| Group names | herock envirotech, herock e-ville, herock tech-ideas, herock safety services | Their own sites (group section removed from this site on 2026-10-30) | Links from the group sites still help |
 
 ## Track 2: category leadership (long term, months 2–12)
 
@@ -26,7 +27,7 @@ These are the high-value searches clients make before they know the name. Curren
 | EPC in Nigeria | epc company in nigeria, epc companies in port harcourt | `/engineering-procurement-and-construction` |
 | Manpower supply | manpower supply companies in port harcourt, oil and gas manpower supply nigeria | `/human-capital-development` |
 | QHSE training | hse training port harcourt, permit to work training nigeria, first aid training port harcourt, behaviour based safety training | `/human-capital-development` now; one page per course later (see [05](05-roadmap.md), weeks 6–12) |
-| Project management training | project management training port harcourt | `/project-management` |
+| Project management training | project management training port harcourt | `/project-management` (unlisted and noindex since 2026-10-30, until reintroduced) |
 | Circular economy | circular economy consulting nigeria, circular economy training nigeria | `/environment-and-circular-economy` |
 | Oil and gas training | oil and gas training companies in port harcourt, ogtan accredited training | `/human-capital-development` |
 
